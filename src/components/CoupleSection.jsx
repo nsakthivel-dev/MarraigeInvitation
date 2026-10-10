@@ -96,8 +96,8 @@ export const CoupleSection = () => {
         </div>
 
         {/* Traditional Wedding Ceremonial Fabric Knot (Connecting Groom & Bride Cards) */}
-        {/* Deep natural U-shaped drape extending toward upper-inner card corners and dipping in center gap */}
-        <div className="hidden md:flex absolute left-1/2 top-[24%] -translate-x-1/2 pointer-events-none items-center justify-center w-[340px] md:w-[380px] lg:w-[440px] z-20">
+        {/* Anchored at upper-inner card corners, gracefully draping down into center gap knot */}
+        <div className="hidden md:flex absolute left-1/2 top-2 md:top-3 lg:top-4 -translate-x-1/2 pointer-events-none items-center justify-center w-[180px] md:w-[210px] lg:w-[240px] z-20">
           <WeddingScarf idPrefix="desktop-knot" className="w-full" />
         </div>
 
@@ -231,8 +231,8 @@ export const CoupleSection = () => {
               </div>
             </div>
 
-            {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Deep U-Drape) */}
-            <div className="absolute left-1/2 top-[20%] -translate-x-1/2 z-15 pointer-events-none flex items-center justify-center w-[160px] min-[390px]:w-[185px] sm:w-[220px]">
+            {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Anchored at Upper-Inner Corners) */}
+            <div className="absolute left-1/2 top-1.5 sm:top-2 -translate-x-1/2 z-15 pointer-events-none flex items-center justify-center w-[105px] min-[390px]:w-[120px] sm:w-[140px]">
               <WeddingScarf idPrefix="mobile-knot" className="w-full" />
             </div>
 
