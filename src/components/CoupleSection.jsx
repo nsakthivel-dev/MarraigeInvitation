@@ -96,7 +96,8 @@ export const CoupleSection = () => {
         </div>
 
         {/* Ceremonial Wedding Silk Scarf on Desktop (Connecting Groom & Bride Cards) */}
-        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center w-[210px] lg:w-[250px]">
+        {/* Positioned in the space between identity section and family details, completely clear of text */}
+        <div className="hidden md:flex absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center w-[150px] lg:w-[180px]">
           <WeddingScarf idPrefix="desktop-scarf" className="w-full drop-shadow-md" />
         </div>
 
@@ -231,7 +232,7 @@ export const CoupleSection = () => {
             </div>
 
             {/* Connecting Ceremonial Wedding Silk Scarf */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-[105px] min-[390px]:w-[120px] sm:w-[145px]">
+            <div className="absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-[85px] min-[390px]:w-[95px] sm:w-[115px]">
               <WeddingScarf idPrefix="mobile-scarf" className="w-full drop-shadow-sm" />
             </div>
 
