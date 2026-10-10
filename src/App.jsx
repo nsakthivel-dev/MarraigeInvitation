@@ -11,6 +11,7 @@ import ClosingMessage from './components/ClosingMessage';
 import ShareSection from './components/ShareSection';
 import MusicToggle from './components/MusicToggle';
 import IslamicCorner from './components/IslamicCorner';
+import ThankYouClosingSection from './components/ThankYouClosingSection';
 
 function App() {
   const [isCardOpen, setIsCardOpen] = useState(() => {
@@ -79,6 +80,9 @@ function App() {
             <ShareSection />
 
           </div>
+
+          {/* Section G: Closing Thank-You & Couple Visual Finale — Emerald Green & Gold Theme */}
+          <ThankYouClosingSection />
 
         </main>
 
