@@ -75,7 +75,7 @@ export const CoupleSection = () => {
           </div>
 
           {/* Groom's Family Details */}
-          <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5">
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
               {groom.sonOf}
             </span>
@@ -95,10 +95,10 @@ export const CoupleSection = () => {
           </div>
         </div>
 
-        {/* Ceremonial Wedding Silk Scarf on Desktop (Connecting Groom & Bride Cards) */}
-        {/* Positioned in the space between identity section and family details, completely clear of text */}
-        <div className="hidden md:flex absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center w-[150px] lg:w-[180px]">
-          <WeddingScarf idPrefix="desktop-scarf" className="w-full drop-shadow-md" />
+        {/* Traditional Wedding Ceremonial Fabric Knot (Connecting Groom & Bride Cards) */}
+        {/* Positioned between identity section and family details, completely clear of text */}
+        <div className="hidden md:flex absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center w-[200px] lg:w-[240px]">
+          <WeddingScarf idPrefix="desktop-knot" className="w-full" />
         </div>
 
         {/* BRIDE'S CARD */}
@@ -140,7 +140,7 @@ export const CoupleSection = () => {
           </div>
 
           {/* Bride's Family Details */}
-          <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5">
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
               {bride.daughterOf}
             </span>
@@ -231,9 +231,9 @@ export const CoupleSection = () => {
               </div>
             </div>
 
-            {/* Connecting Ceremonial Wedding Silk Scarf */}
-            <div className="absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-[85px] min-[390px]:w-[95px] sm:w-[115px]">
-              <WeddingScarf idPrefix="mobile-scarf" className="w-full drop-shadow-sm" />
+            {/* Connecting Traditional Ceremonial Wedding Fabric Knot */}
+            <div className="absolute left-1/2 top-[51%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-[105px] min-[390px]:w-[120px] sm:w-[140px]">
+              <WeddingScarf idPrefix="mobile-knot" className="w-full" />
             </div>
 
             {/* BRIDE (Right Column) */}
@@ -332,10 +332,10 @@ export const CoupleSection = () => {
               </p>
             </div>
 
-            {/* Draped Ceremonial Wedding Scarf (Narrow Mobile) */}
-            <div className="flex items-center justify-center my-1 pointer-events-none">
-              <div className="w-[125px] max-w-[135px]">
-                <WeddingScarf idPrefix="narrow-scarf" className="w-full drop-shadow-sm" />
+            {/* Traditional Ceremonial Wedding Knot (Narrow Mobile) */}
+            <div className="flex items-center justify-center my-2 pointer-events-none">
+              <div className="w-[140px] max-w-[160px]">
+                <WeddingScarf idPrefix="narrow-knot" className="w-full" />
               </div>
             </div>
 
