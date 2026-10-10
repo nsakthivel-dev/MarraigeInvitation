@@ -25,7 +25,7 @@ export const WeddingScarf = ({ className = '', idPrefix = 'wedding-knot' }) => {
           <img
             src="/wedding-knot.png"
             alt="Traditional ceremonial wedding knot connecting groom and bride"
-            className="w-full h-auto object-contain select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(2,43,32,0.22)]"
+            className="w-full h-auto object-contain select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(2,43,32,0.22)] scale-[1.015] transform-gpu"
             loading="eager"
             decoding="async"
             onError={() => setImgError(true)}

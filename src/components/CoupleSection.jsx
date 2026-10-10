@@ -31,7 +31,7 @@ export const CoupleSection = () => {
       {/* ================================================================= */}
       {/* DESKTOP VIEW (Width >= 768px): Strictly Preserved Original Layout */}
       {/* ================================================================= */}
-      <div className="hidden md:grid md:grid-cols-2 md:gap-6 lg:gap-10 items-stretch relative">
+      <div className="hidden md:grid md:grid-cols-2 md:gap-x-20 lg:gap-x-28 items-stretch relative">
         
         {/* GROOM'S CARD */}
         <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-between text-center islamic-gold-frame">
@@ -96,8 +96,8 @@ export const CoupleSection = () => {
         </div>
 
         {/* Traditional Wedding Ceremonial Fabric Knot (Connecting Groom & Bride Cards) */}
-        {/* Anchored at upper-inner card corners (Groom top-right, Bride top-left) with natural U-drape into center knot */}
-        <div className="hidden md:flex absolute left-1/2 -top-1 md:top-0 lg:top-1 -translate-x-1/2 pointer-events-none items-center justify-center w-[250px] md:w-[290px] lg:w-[340px] z-15">
+        {/* Full Edge-to-Edge Coverage: spans exactly from Groom's right inner edge to Bride's left inner edge */}
+        <div className="hidden md:flex absolute left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2 pointer-events-none items-center justify-center w-20 lg:w-28 z-20">
           <WeddingScarf idPrefix="desktop-knot" className="w-full" />
         </div>
 
@@ -177,7 +177,7 @@ export const CoupleSection = () => {
           {/* ------------------------------------------------------------- */}
           {/* 1. Standard Mobile (>= 360px): Two Equal-Width Cards Side-by-Side */}
           {/* ------------------------------------------------------------- */}
-          <div className="hidden min-[360px]:grid grid-cols-2 gap-2 min-[390px]:gap-2.5 sm:gap-4 items-stretch relative">
+          <div className="hidden min-[360px]:grid grid-cols-2 gap-x-8 min-[375px]:gap-x-10 min-[390px]:gap-x-12 min-[414px]:gap-x-14 sm:gap-x-16 items-stretch relative">
             
             {/* GROOM (Left Column) */}
             <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
@@ -231,8 +231,8 @@ export const CoupleSection = () => {
               </div>
             </div>
 
-            {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Anchored at Upper-Inner Corners) */}
-            <div className="absolute left-1/2 -top-0.5 min-[390px]:top-0 sm:top-0.5 -translate-x-1/2 z-15 pointer-events-none flex items-center justify-center w-[125px] min-[375px]:w-[136px] min-[390px]:w-[148px] min-[414px]:w-[158px] sm:w-[176px]">
+            {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Full Edge-to-Edge Gap Coverage) */}
+            <div className="absolute left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-8 min-[375px]:w-10 min-[390px]:w-12 min-[414px]:w-14 sm:w-16">
               <WeddingScarf idPrefix="mobile-knot" className="w-full" />
             </div>
 
