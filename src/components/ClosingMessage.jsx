@@ -1,47 +1,73 @@
 import React from 'react';
 import weddingConfig from '../data/invitation';
-import KuthuVilakku from './KuthuVilakku';
-import KolamCorner from './KolamCorner';
+import IslamicLantern from './IslamicLantern';
+import IslamicCorner from './IslamicCorner';
 
 /**
- * Section E: Warm Closing Message & Family Signatures
+ * Section E: Warm Closing Message, Dua & Family Signatures
  */
 export const ClosingMessage = () => {
-  const { closingMessage, familySignature } = weddingConfig;
+  const { closingMessage, duaGreeting, duaTranslation, appreciationMessage, familySignature } = weddingConfig;
 
   return (
     <section 
       id="closing" 
-      aria-label="Closing Message and Blessings"
-      className="relative px-4 py-8 sm:py-12 max-w-3xl mx-auto text-center"
+      aria-label="Closing Dua and Blessings"
+      className="relative px-1 sm:px-4 py-6 sm:py-12 max-w-3xl mx-auto text-center"
     >
-      <div className="relative bg-[#FFFDF8] rounded-2xl p-6 sm:p-10 border border-[#B08D57]/40 shadow-lg gold-frame">
-        <KolamCorner position="top-left" size={45} className="top-1 left-1 opacity-60" />
-        <KolamCorner position="top-right" size={45} className="top-1 right-1 opacity-60" />
-        <KolamCorner position="bottom-left" size={45} className="bottom-1 left-1 opacity-60" />
-        <KolamCorner position="bottom-right" size={45} className="bottom-1 right-1 opacity-60" />
+      <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-10 border border-[#C6A15B]/40 shadow-lg islamic-gold-frame">
+        <IslamicCorner position="top-left" size={45} className="top-1 left-1 opacity-65" />
+        <IslamicCorner position="top-right" size={45} className="top-1 right-1 opacity-65" />
+        <IslamicCorner position="bottom-left" size={45} className="bottom-1 left-1 opacity-65" />
+        <IslamicCorner position="bottom-right" size={45} className="bottom-1 right-1 opacity-65" />
 
-        {/* Auspicious Diya Pair */}
-        <div className="flex items-center justify-center space-x-4 mb-4">
-          <KuthuVilakku height={50} className="opacity-90" />
-          <div className="w-2 h-2 rotate-45 bg-[#B08D57]" />
-          <KuthuVilakku height={50} className="opacity-90" />
+        {/* Flanking Fanous Lanterns */}
+        <div className="flex items-center justify-center space-x-3.5 sm:space-x-4 mb-3 sm:mb-4">
+          <IslamicLantern height={40} className="opacity-90 sm:hidden" />
+          <IslamicLantern height={50} className="opacity-90 hidden sm:inline-block" />
+          <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rotate-45 bg-[#C6A15B]" />
+          <IslamicLantern height={40} className="opacity-90 sm:hidden" />
+          <IslamicLantern height={50} className="opacity-90 hidden sm:inline-block" />
         </div>
 
+        {/* Authentic Wedding Dua in Arabic */}
+        {duaGreeting && (
+          <div className="mb-3 sm:mb-4">
+            <p 
+              className="font-arabic text-lg min-[360px]:text-xl sm:text-2xl text-[#064E3B] font-bold leading-relaxed mb-1"
+              dir="rtl"
+              lang="ar"
+            >
+              {duaGreeting}
+            </p>
+            {duaTranslation && (
+              <p className="text-[11px] sm:text-sm font-serif italic text-[#425F54] max-w-md mx-auto px-2">
+                “{duaTranslation}”
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Heartfelt Closing Message */}
-        <p className="text-base sm:text-lg md:text-xl font-serif text-[#382A22] leading-relaxed italic mb-8 max-w-xl mx-auto">
+        <p className="text-sm min-[360px]:text-base sm:text-lg md:text-xl font-serif text-[#17352C] leading-relaxed italic mb-3 sm:mb-4 max-w-xl mx-auto">
           "{closingMessage}"
         </p>
 
+        {appreciationMessage && (
+          <p className="text-xs sm:text-sm font-serif text-[#9A7730] font-semibold mb-4 sm:mb-6">
+            {appreciationMessage}
+          </p>
+        )}
+
         {/* Family Signature / Compliments */}
-        <div className="border-t border-[#B08D57]/30 pt-6 mt-4">
-          <p className="text-xs uppercase tracking-widest text-[#8C6D3B] font-sans font-semibold mb-2">
+        <div className="border-t border-[#C6A15B]/30 pt-6 mt-4">
+          <p className="text-xs uppercase tracking-widest text-[#9A7730] font-sans font-semibold mb-2">
             {familySignature.complimentsText}
           </p>
-          <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#6D1F2A] tracking-wide mb-1">
+          <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#064E3B] tracking-wide mb-1">
             {familySignature.families}
           </h4>
-          <p className="text-xs sm:text-sm font-serif italic text-[#6B5B52]">
+          <p className="text-xs sm:text-sm font-serif italic text-[#425F54]">
             {familySignature.subtext}
           </p>
         </div>

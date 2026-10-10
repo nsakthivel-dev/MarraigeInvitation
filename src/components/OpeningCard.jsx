@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import weddingConfig from '../data/invitation';
-import KolamCorner from './KolamCorner';
-import KuthuVilakku from './KuthuVilakku';
+import IslamicCorner from './IslamicCorner';
+import IslamicLantern from './IslamicLantern';
 
 /**
- * OpeningCard: The Fullscreen Luxury South Indian Wedding Card Cover
+ * OpeningCard: Fullscreen Luxury Islamic Wedding Invitation Cover
  * 
- * Features:
- * - 3D dual-folding doors with authentic antique-gold filigree borders
- * - Embossed royal seal with glowing flame motif
- * - Authentic South Indian motifs (Diya, Kolam, Kalasam)
- * - 800ms smooth unfolding animation with reduced-motion support
- * - Keyboard accessible (Enter / Space)
+ * Design Features:
+ * - Deep emerald-green and forest-green cover with subtle geometric star patterns
+ * - Sophisticated double antique-gold filigree borders & Islamic arches
+ * - 3D dual-folding doors that swing open in perspective
+ * - Sacred Bismillah in Amiri Arabic calligraphy with English translation
+ * - Couple names as the visual centerpiece
+ * - Prominent "Open Invitation" emerald-and-gold button with glowing shimmer
+ * - Tap anywhere / keyboard accessible (Enter / Space)
+ * - 850ms smooth unfolding transition
  */
 export const OpeningCard = ({ isOpen, onOpen }) => {
   const [isOpening, setIsOpening] = useState(false);
@@ -20,12 +23,13 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
     if (isOpening || isOpen) return;
     setIsOpening(true);
 
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const duration = prefersReducedMotion ? 100 : 850;
+    const prefersReducedMotion = typeof window !== 'undefined' && 
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = prefersReducedMotion ? 120 : 850;
 
     setTimeout(() => {
       onOpen();
+      setIsOpening(false);
     }, duration);
   };
 
@@ -38,166 +42,248 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
 
   return (
     <div 
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 transition-opacity duration-700 bg-[#F8F1E3] ${
+      className={`fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 transition-opacity duration-700 bg-[#0B3D2E] ${
         isOpen ? 'pointer-events-none opacity-0' : 'opacity-100'
       }`}
       role="dialog"
       aria-modal="true"
-      aria-label="Wedding Invitation Envelope"
+      aria-label="Islamic Wedding Invitation Envelope"
+      onClick={handleOpenClick}
     >
-      {/* Background Ambience: Subtle Kolam Watermark & Golden Glow */}
-      <div className="absolute inset-0 bg-silk-pattern pointer-events-none" />
+      {/* Background Ambience: Deep Emerald Pattern with Gold Stars */}
+      <div className="absolute inset-0 bg-emerald-pattern pointer-events-none opacity-95" />
       
-      {/* Subtle Corner Kolams on the Screen Edges */}
-      <KolamCorner position="top-left" size={90} className="top-2 left-2 opacity-60" />
-      <KolamCorner position="top-right" size={90} className="top-2 right-2 opacity-60" />
-      <KolamCorner position="bottom-left" size={90} className="bottom-2 left-2 opacity-60" />
-      <KolamCorner position="bottom-right" size={90} className="bottom-2 right-2 opacity-60" />
+      {/* Subtle Screen Edge Islamic Corners */}
+      <IslamicCorner position="top-left" size={90} className="top-2 left-2 opacity-60 pointer-events-none" />
+      <IslamicCorner position="top-right" size={90} className="top-2 right-2 opacity-60 pointer-events-none" />
+      <IslamicCorner position="bottom-left" size={90} className="bottom-2 left-2 opacity-60 pointer-events-none" />
+      <IslamicCorner position="bottom-right" size={90} className="bottom-2 right-2 opacity-60 pointer-events-none" />
 
       {/* 3D Perspective Card Container */}
-      <div className="relative w-full max-w-[480px] md:max-w-[540px] perspective-1500">
+      <div 
+        className="relative w-full max-w-[500px] md:max-w-[560px] perspective-1500 cursor-pointer select-none"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleOpenClick();
+        }}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        role="button"
+        aria-label="Click or tap to open the Islamic wedding invitation card"
+      >
         
         {/* Card Main Body */}
         <div 
-          className={`relative w-full rounded-2xl bg-[#FFFDF8] shadow-2xl transition-all duration-700 overflow-hidden transform-style-3d border border-[#B08D57]/40 ${
-            isOpening ? 'scale-105 opacity-90' : 'scale-100'
+          className={`relative w-full rounded-2xl sm:rounded-3xl bg-[#064E3B] shadow-2xl transition-all duration-700 overflow-hidden transform-style-3d border-2 border-[#C6A15B]/70 ${
+            isOpening ? 'scale-105 opacity-90' : 'scale-100 hover:shadow-[0_30px_70px_-10px_rgba(3,43,32,0.65)]'
           }`}
           style={{
-            boxShadow: '0 25px 60px -15px rgba(109, 31, 42, 0.25), 0 0 0 1px rgba(176, 141, 87, 0.3)',
+            boxShadow: '0 25px 60px -15px rgba(3, 43, 32, 0.7), 0 0 0 1px rgba(198, 161, 91, 0.45)',
           }}
         >
-          {/* Card Flaps / Left & Right 3D Doors */}
-          <div className="relative w-full flex min-h-[580px] sm:min-h-[620px]">
+          {/* Card Flaps Area */}
+          <div className="relative w-full flex min-h-[520px] sm:min-h-[600px] md:min-h-[640px]">
             
-            {/* Left Door */}
+            {/* INNER SANCTUM (Revealed when 3D doors swing open) */}
+            <div className="absolute inset-0 w-full h-full py-6 px-4 sm:py-10 sm:px-8 flex flex-col items-center justify-center text-center z-10 bg-gradient-to-b from-[#FAF7EF] via-[#F4EFE2] to-[#FAF7EF]">
+              <div className="w-full h-full border-2 border-[#C6A15B]/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center relative islamic-gold-frame">
+                <IslamicCorner position="top-left" size={50} className="top-1.5 left-1.5 sm:top-2 sm:left-2 opacity-70" />
+                <IslamicCorner position="top-right" size={50} className="top-1.5 right-1.5 sm:top-2 sm:right-2 opacity-70" />
+                <IslamicCorner position="bottom-left" size={50} className="bottom-1.5 left-1.5 sm:bottom-2 sm:left-2 opacity-70" />
+                <IslamicCorner position="bottom-right" size={50} className="bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 opacity-70" />
+                
+                {/* Flanking Fanous Lanterns */}
+                <div className="flex items-center justify-center space-x-5 sm:space-x-8 mb-2 sm:mb-3">
+                  <IslamicLantern height={48} className="opacity-95 sm:hidden" />
+                  <IslamicLantern height={65} className="opacity-95 hidden sm:inline-block" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rotate-45 border-2 border-[#C6A15B] bg-[#C6A15B]/30" />
+                  <IslamicLantern height={48} className="opacity-95 sm:hidden" />
+                  <IslamicLantern height={65} className="opacity-95 hidden sm:inline-block" />
+                </div>
+
+                <p className="font-arabic text-lg sm:text-2xl text-[#064E3B] font-bold mb-1" dir="rtl">
+                  مَرْحَبًا بِكُمْ • أَهْلًا وَسَهْلًا
+                </p>
+                <p className="text-[10px] sm:text-sm font-serif tracking-widest text-[#9A7730] font-bold uppercase mb-1">
+                  || Welcome to the Celebration ||
+                </p>
+                <h3 className="text-xl sm:text-3xl font-serif font-bold text-[#064E3B] mb-1 sm:mb-2">
+                  The Blessed Union
+                </h3>
+                <p className="text-[11px] sm:text-sm font-serif italic text-[#425F54] max-w-[260px] sm:max-w-[280px]">
+                  Unfolding the sacred moments and heartfelt duas...
+                </p>
+              </div>
+            </div>
+
+            {/* LEFT 3D DOOR (Deep Emerald with Gold Arch Border) */}
             <div 
-              className={`w-1/2 h-full absolute inset-y-0 left-0 bg-[#FFFDF8] z-20 border-r border-[#B08D57]/30 card-door-left ${
+              className={`w-1/2 h-full absolute inset-y-0 left-0 bg-[#064E3B] z-20 border-r border-[#C6A15B]/50 card-door-left ${
                 isOpening ? 'is-open' : ''
               }`}
               style={{
-                background: 'linear-gradient(135deg, #FFFDF8 0%, #FAF4E8 100%)',
+                background: 'linear-gradient(135deg, #0B3D2E 0%, #064E3B 100%)',
               }}
             >
-              {/* Left Door Inner Border & Motif */}
               <div className="h-full w-full p-3 sm:p-4 flex flex-col justify-between">
-                <div className="w-full h-full border-t-2 border-l-2 border-b-2 border-[#B08D57]/60 rounded-l-lg p-2 relative">
-                  <KolamCorner position="top-left" size={45} className="top-1 left-1 opacity-75" />
-                  <KolamCorner position="bottom-left" size={45} className="bottom-1 left-1 opacity-75" />
-                  {/* Subtle traditional vertical border pattern */}
-                  <div className="h-full flex items-center justify-start pl-1 opacity-40">
-                    <div className="w-[1px] h-3/4 bg-dashed border-l border-[#B08D57]" />
-                  </div>
+                <div className="w-full h-full border-t-2 border-l-2 border-b-2 border-[#C6A15B]/70 rounded-l-2xl p-2 relative">
+                  <IslamicCorner position="top-left" size={45} className="top-1 left-1 opacity-80" />
+                  <IslamicCorner position="bottom-left" size={45} className="bottom-1 left-1 opacity-80" />
+                  {/* Subtle Arch Inset on Left Door */}
+                  <div className="absolute right-2 top-8 bottom-8 left-4 border-r border-dashed border-[#C6A15B]/40 pointer-events-none" />
                 </div>
               </div>
             </div>
 
-            {/* Right Door */}
+            {/* RIGHT 3D DOOR (Deep Emerald with Gold Arch Border) */}
             <div 
-              className={`w-1/2 h-full absolute inset-y-0 right-0 bg-[#FFFDF8] z-20 border-l border-[#B08D57]/30 card-door-right ${
+              className={`w-1/2 h-full absolute inset-y-0 right-0 bg-[#064E3B] z-20 border-l border-[#C6A15B]/50 card-door-right ${
                 isOpening ? 'is-open' : ''
               }`}
               style={{
-                background: 'linear-gradient(225deg, #FFFDF8 0%, #FAF4E8 100%)',
+                background: 'linear-gradient(225deg, #0B3D2E 0%, #064E3B 100%)',
               }}
             >
-              {/* Right Door Inner Border & Motif */}
               <div className="h-full w-full p-3 sm:p-4 flex flex-col justify-between">
-                <div className="w-full h-full border-t-2 border-r-2 border-b-2 border-[#B08D57]/60 rounded-r-lg p-2 relative">
-                  <KolamCorner position="top-right" size={45} className="top-1 right-1 opacity-75" />
-                  <KolamCorner position="bottom-right" size={45} className="bottom-1 right-1 opacity-75" />
-                  {/* Subtle traditional vertical border pattern */}
-                  <div className="h-full flex items-center justify-end pr-1 opacity-40">
-                    <div className="w-[1px] h-3/4 bg-dashed border-r border-[#B08D57]" />
-                  </div>
+                <div className="w-full h-full border-t-2 border-r-2 border-b-2 border-[#C6A15B]/70 rounded-r-2xl p-2 relative">
+                  <IslamicCorner position="top-right" size={45} className="top-1 right-1 opacity-80" />
+                  <IslamicCorner position="bottom-right" size={45} className="bottom-1 right-1 opacity-80" />
+                  {/* Subtle Arch Inset on Right Door */}
+                  <div className="absolute left-2 top-8 bottom-8 right-4 border-l border-dashed border-[#C6A15B]/40 pointer-events-none" />
                 </div>
               </div>
             </div>
 
-            {/* Card Content Surface (Visible on cover & shines beneath doors) */}
-            <div className="w-full h-full py-8 px-6 sm:py-10 sm:px-8 flex flex-col items-center justify-between text-center z-10">
-              
-              {/* Top Invocation & Sacred Diya */}
+            {/* FRONT COVER CONTENT & ISLAMIC ARCH FRAME (z-30 over doors) */}
+            <div 
+              className={`absolute inset-0 w-full h-full py-5 px-3.5 sm:py-8 sm:px-6 md:py-9 md:px-8 flex flex-col items-center justify-between text-center z-30 transition-all duration-500 ${
+                isOpening ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+              }`}
+            >
+              {/* Top: Crescent Motif & Sacred Bismillah */}
               <div className="w-full flex flex-col items-center">
-                <p className="text-xs sm:text-sm font-serif tracking-widest text-[#B08D57] font-semibold mb-1">
-                  {weddingConfig.traditionalInvocation}
-                </p>
-                <p className="text-[11px] sm:text-xs tracking-wider uppercase text-[#8C6D3B] font-medium mb-3">
-                  {weddingConfig.traditionalInvocationEnglish}
-                </p>
-
-                {/* Auspicious Diya Pair */}
-                <div className="flex items-center justify-center space-x-6 my-1">
-                  <KuthuVilakku height={52} className="opacity-95" />
-                  <div className="w-2.5 h-2.5 rotate-45 border border-[#B08D57] bg-[#B08D57]/30" />
-                  <KuthuVilakku height={52} className="opacity-95" />
+                
+                {/* Crescent & 8-Point Star Icon */}
+                <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-1 text-[#E5D3A1]">
+                  <span className="w-6 sm:w-8 h-[1px] bg-gradient-to-r from-transparent to-[#C6A15B]" />
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 text-[#E5D3A1]" fill="none">
+                    <path
+                      d="M 14 4 C 8.5 4 4 8.5 4 14 C 4 18.5 7 22 11.5 22.8 C 8 21 6 17.5 6 14 C 6 9.5 9.5 6 14 4 Z"
+                      fill="#E5D3A1"
+                    />
+                    <g transform="translate(16, 11) scale(0.6)">
+                      <rect x="-4" y="-4" width="8" height="8" fill="#E5D3A1" rx="0.5" />
+                      <rect x="-4" y="-4" width="8" height="8" fill="#E5D3A1" rx="0.5" transform="rotate(45)" />
+                    </g>
+                  </svg>
+                  <span className="w-6 sm:w-8 h-[1px] bg-gradient-to-l from-transparent to-[#C6A15B]" />
                 </div>
 
-                <p className="text-xs sm:text-sm font-serif italic text-[#6B5B52] mt-2 max-w-[280px]">
+                {/* Bismillah in Arabic Calligraphy */}
+                <p 
+                  className="font-arabic text-xl min-[360px]:text-2xl sm:text-3xl text-[#E5D3A1] font-bold tracking-normal leading-relaxed my-0.5 drop-shadow-sm select-text" 
+                  dir="rtl"
+                  lang="ar"
+                >
+                  {weddingConfig.arabicGreeting}
+                </p>
+
+                {/* English Translation */}
+                <p className="text-[9px] min-[360px]:text-[10px] sm:text-xs font-serif italic text-[#E5D3A1]/90 max-w-[280px] sm:max-w-[320px] leading-tight mb-1">
+                  “{weddingConfig.arabicGreetingTranslation}”
+                </p>
+
+                {/* Blessings Title */}
+                <p className="text-[11px] sm:text-sm font-serif tracking-widest uppercase text-[#C6A15B] font-semibold mt-0.5 sm:mt-1">
                   {weddingConfig.blessingsTitle}
                 </p>
+
+                {/* Lanterns Pair Accent */}
+                <div className="flex items-center justify-center space-x-5 sm:space-x-6 my-1">
+                  <IslamicLantern height={34} className="opacity-90 sm:hidden" />
+                  <IslamicLantern height={40} className="opacity-90 hidden sm:inline-block" />
+                  <div className="w-2 h-2 rotate-45 border border-[#E5D3A1] bg-[#C6A15B]/40" />
+                  <IslamicLantern height={34} className="opacity-90 sm:hidden" />
+                  <IslamicLantern height={40} className="opacity-90 hidden sm:inline-block" />
+                </div>
               </div>
 
               {/* Centerpiece: Heading & Couple Names */}
-              <div className="my-4 w-full flex flex-col items-center">
-                <div className="inline-block relative px-6 py-1 mb-3">
-                  <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-[#6D1F2A] border-y border-[#B08D57]/50 py-1 px-4">
-                    Wedding Invitation
+              <div className="my-1 sm:my-2 w-full flex flex-col items-center">
+                <div className="inline-block relative px-3 sm:px-5 py-0.5 sm:py-1 mb-1 sm:mb-2">
+                  <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#E5D3A1] border-y border-[#C6A15B]/60 py-0.5 sm:py-1 px-3 sm:px-4">
+                    {weddingConfig.invitationTitle}
                   </span>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#6D1F2A] tracking-tight leading-snug">
+                <p className="text-[9px] sm:text-xs uppercase tracking-widest text-[#C6A15B] font-sans font-medium mb-1">
+                  {weddingConfig.familyGreeting}
+                </p>
+
+                {/* Groom's Name */}
+                <h1 className="text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#FFFFFF] tracking-tight leading-snug drop-shadow-sm px-1">
                   {weddingConfig.groom.name}
                 </h1>
                 
-                <div className="flex items-center justify-center my-1.5 space-x-3 text-[#B08D57]">
-                  <span className="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#B08D57]" />
-                  <span className="text-base sm:text-lg font-serif italic text-[#8C6D3B] font-semibold">weds</span>
-                  <span className="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#B08D57]" />
+                {/* Gold Separator */}
+                <div className="flex items-center justify-center my-0.5 sm:my-1 space-x-2.5 sm:space-x-3 text-[#C6A15B]">
+                  <span className="w-6 sm:w-8 h-[1px] bg-gradient-to-r from-transparent to-[#C6A15B]" />
+                  <span className="text-sm sm:text-lg font-serif italic text-[#E5D3A1] font-semibold">&</span>
+                  <span className="w-6 sm:w-8 h-[1px] bg-gradient-to-l from-transparent to-[#C6A15B]" />
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#6D1F2A] tracking-tight leading-snug">
+                {/* Bride's Name */}
+                <h2 className="text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#FFFFFF] tracking-tight leading-snug drop-shadow-sm px-1">
                   {weddingConfig.bride.name}
                 </h2>
 
-                <p className="text-xs sm:text-sm text-[#6B5B52] font-serif italic mt-3 max-w-[320px] leading-relaxed">
-                  Request the honour of your auspicious presence and blessings.
+                {/* Date & Ceremony Hint */}
+                <p className="text-[11px] sm:text-sm text-[#E5D3A1] font-serif font-medium mt-1 sm:mt-2">
+                  {weddingConfig.displayDate} • {weddingConfig.nikah.title}
                 </p>
               </div>
 
-              {/* Bottom Interactive Open Button / Wax Seal */}
-              <div className="w-full flex flex-col items-center pt-2">
+              {/* Bottom: Interactive "Open Invitation" Button */}
+              <div className="w-full flex flex-col items-center pt-1 sm:pt-2">
+                
                 <button
                   type="button"
                   id="open-invitation-btn"
-                  onClick={handleOpenClick}
-                  onKeyDown={handleKeyDown}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleOpenClick();
+                  }}
                   disabled={isOpening}
-                  aria-label="Open the wedding invitation card"
-                  className={`group relative inline-flex items-center justify-center px-8 py-3.5 rounded-full overflow-hidden shadow-lg transition-all duration-300 transform cursor-pointer border border-[#DFC794] focus:outline-hidden focus:ring-3 focus:ring-[#B08D57] ${
-                    isOpening ? 'scale-95 opacity-80' : 'hover:scale-105 active:scale-95'
+                  aria-label="Open the Islamic wedding invitation"
+                  className={`group relative inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 min-[360px]:px-8 min-[360px]:py-3 sm:px-10 sm:py-4 rounded-full overflow-hidden shadow-2xl transition-all duration-300 transform cursor-pointer border-2 border-[#E5D3A1] active:scale-95 ${
+                    isOpening ? 'scale-95 opacity-80' : 'hover:scale-105'
                   }`}
                   style={{
-                    background: 'linear-gradient(135deg, #8E2B3A 0%, #6D1F2A 50%, #4A131C 100%)',
-                    boxShadow: '0 8px 25px -4px rgba(109, 31, 42, 0.45)',
+                    background: 'linear-gradient(135deg, #0B3D2E 0%, #064E3B 50%, #032B20 100%)',
+                    boxShadow: '0 12px 30px -4px rgba(3, 43, 32, 0.7), 0 0 20px rgba(198, 161, 91, 0.4)',
                   }}
                 >
-                  {/* Subtle Golden Sheen */}
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                  {/* Continuous Golden Shimmer Wave */}
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#E5D3A1]/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
 
-                  {/* Left Golden Floret */}
-                  <span className="w-2 h-2 rotate-45 border border-[#DFC794] bg-[#F5E8C7]/40 mr-3" />
+                  {/* Pulsing Aura Ring */}
+                  <span className="absolute -inset-1 rounded-full border border-[#E5D3A1]/40 animate-pulse pointer-events-none" />
+
+                  {/* Left Golden 8-Point Star */}
+                  <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rotate-45 border border-[#E5D3A1] bg-[#C6A15B]/50 mr-2 sm:mr-3" />
 
                   {/* Button Text */}
-                  <span className="relative text-sm sm:text-base font-serif font-bold tracking-widest text-[#FFFDF8] uppercase">
+                  <span className="relative text-xs min-[360px]:text-sm sm:text-base font-serif font-bold tracking-[0.16em] sm:tracking-[0.18em] text-[#FAF7EF] uppercase drop-shadow-sm">
                     {isOpening ? "Opening Invitation..." : "Open Invitation"}
                   </span>
 
-                  {/* Right Golden Floret */}
-                  <span className="w-2 h-2 rotate-45 border border-[#DFC794] bg-[#F5E8C7]/40 ml-3" />
+                  {/* Right Golden 8-Point Star */}
+                  <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rotate-45 border border-[#E5D3A1] bg-[#C6A15B]/50 ml-2 sm:ml-3" />
                 </button>
 
-                <p className="text-[11px] text-[#8C6D3B] mt-3 font-sans tracking-wide">
-                  Tap to unfold the invitation
+                {/* Subtitle Hint */}
+                <p className="text-[10px] sm:text-xs text-[#E5D3A1]/85 mt-2 sm:mt-3 font-serif italic tracking-wide animate-pulse">
+                  ✨ Tap or click anywhere to open ✨
                 </p>
               </div>
 

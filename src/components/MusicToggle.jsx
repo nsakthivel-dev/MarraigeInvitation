@@ -3,14 +3,14 @@ import { Volume2, Music } from 'lucide-react';
 import weddingConfig from '../data/invitation';
 
 /**
- * Traditional Wedding Music & Ambient Sound Controller
+ * Islamic Wedding Music & Ambient Sound Controller
  * 
  * Features:
  * 1. Strictly NO autoplay - requires explicit user click.
  * 2. Uses config audioUrl if provided.
- * 3. Fallback: Harmonious Web Audio API Tanpura drone generator (Sa-Pa drone)
- *    which creates an authentic Vedic wedding ambience with zero external audio assets!
- * 4. Keyboard accessible & handles errors silently without console crashes.
+ * 3. Fallback: Serene Web Audio API ambient acoustic harmony (gentle oriental modal drone)
+ *    which creates a peaceful atmosphere with zero external audio assets!
+ * 4. Keyboard accessible & handles errors gracefully without console warnings.
  */
 export const MusicToggle = ({ className = '' }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,8 +23,8 @@ export const MusicToggle = ({ className = '' }) => {
 
   const audioUrl = weddingConfig.music?.audioUrl;
 
-  // Initialize or start synthesized Tanpura drone
-  const startTanpuraSynth = () => {
+  // Initialize or start serene ambient acoustic drone
+  const startAmbientSynth = () => {
     try {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
@@ -41,17 +41,17 @@ export const MusicToggle = ({ className = '' }) => {
       // Stop any existing nodes
       stopSynth();
 
-      // Tanpura frequencies for auspicious C# (Sa ~ 138.6Hz, Pa ~ 207.65Hz)
+      // Gentle oriental resonant acoustic modal drone (D harmonic series)
       const droneNotes = [
-        { freq: 138.59, gain: 0.08, type: 'sine' },      // Low Sa
-        { freq: 207.65, gain: 0.06, type: 'triangle' },  // Pa (Fifth)
-        { freq: 277.18, gain: 0.04, type: 'sine' },      // High Sa
-        { freq: 415.30, gain: 0.015, type: 'sine' },     // Shimmer overtone
+        { freq: 146.83, gain: 0.07, type: 'sine' },      // D3 Fundamental
+        { freq: 220.00, gain: 0.05, type: 'triangle' },  // A3 Perfect Fifth
+        { freq: 293.66, gain: 0.035, type: 'sine' },     // D4 Octave
+        { freq: 349.23, gain: 0.02, type: 'sine' },      // F4 Minor Third
       ];
 
       const masterGain = ctx.createGain();
       masterGain.gain.setValueAtTime(0.01, ctx.currentTime);
-      masterGain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 2.5);
+      masterGain.gain.exponentialRampToValueAtTime(0.10, ctx.currentTime + 2.5);
       masterGain.connect(ctx.destination);
 
       const nodes = [];
@@ -63,11 +63,11 @@ export const MusicToggle = ({ className = '' }) => {
         osc.type = note.type;
         osc.frequency.setValueAtTime(note.freq, ctx.currentTime);
 
-        // Subtle LFO for gentle organic Tanpura pulsation
+        // Subtle LFO for gentle breathing swell
         const lfo = ctx.createOscillator();
         const lfoGain = ctx.createGain();
-        lfo.frequency.setValueAtTime(0.3 + Math.random() * 0.2, ctx.currentTime);
-        lfoGain.gain.setValueAtTime(0.02, ctx.currentTime);
+        lfo.frequency.setValueAtTime(0.25 + Math.random() * 0.15, ctx.currentTime);
+        lfoGain.gain.setValueAtTime(0.015, ctx.currentTime);
         lfo.connect(noteGain.gain);
         lfo.start();
 
@@ -80,51 +80,50 @@ export const MusicToggle = ({ className = '' }) => {
       });
 
       synthNodesRef.current = { nodes, masterGain };
-    } catch (err) {
-      console.warn("Ambient audio synth notice:", err);
+    } catch {
+      // Audio synth notice
     }
   };
 
   const stopSynth = () => {
     if (synthNodesRef.current?.masterGain && audioContextRef.current) {
       const ctx = audioContextRef.current;
-      synthNodesRef.current.masterGain.gain.setValueAtTime(
-        synthNodesRef.current.masterGain.gain.value,
-        ctx.currentTime
-      );
-      synthNodesRef.current.masterGain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        ctx.currentTime + 0.8
-      );
-      setTimeout(() => {
-        synthNodesRef.current?.nodes?.forEach(n => {
-          try { n.stop(); n.disconnect(); } catch {}
-        });
-        synthNodesRef.current = null;
-      }, 900);
+      try {
+        synthNodesRef.current.masterGain.gain.setValueAtTime(
+          synthNodesRef.current.masterGain.gain.value,
+          ctx.currentTime
+        );
+        synthNodesRef.current.masterGain.gain.exponentialRampToValueAtTime(
+          0.0001,
+          ctx.currentTime + 0.8
+        );
+        setTimeout(() => {
+          synthNodesRef.current?.nodes?.forEach(n => {
+            try { n.stop(); n.disconnect(); } catch {}
+          });
+          synthNodesRef.current = null;
+        }, 900);
+      } catch {}
     }
   };
 
   const toggleMusic = () => {
     if (isPlaying) {
-      // Pause
       if (audioRef.current && !useSynth) {
         audioRef.current.pause();
       }
       stopSynth();
       setIsPlaying(false);
     } else {
-      // Start
       if (audioUrl && !audioError) {
         if (!audioRef.current) {
           audioRef.current = new Audio(audioUrl);
           audioRef.current.loop = true;
           audioRef.current.volume = 0.4;
           audioRef.current.onerror = () => {
-            // Fallback gracefully to synth
             setAudioError(true);
             setUseSynth(true);
-            startTanpuraSynth();
+            startAmbientSynth();
             setIsPlaying(true);
           };
         }
@@ -135,21 +134,18 @@ export const MusicToggle = ({ className = '' }) => {
             setUseSynth(false);
           })
           .catch(() => {
-            // Autoplay blocked or file not found - fallback to web synth
             setUseSynth(true);
-            startTanpuraSynth();
+            startAmbientSynth();
             setIsPlaying(true);
           });
       } else {
-        // Use synthesized traditional drone
         setUseSynth(true);
-        startTanpuraSynth();
+        startAmbientSynth();
         setIsPlaying(true);
       }
     }
   };
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (audioRef.current) {
@@ -163,35 +159,34 @@ export const MusicToggle = ({ className = '' }) => {
   }, []);
 
   return (
-    <div className={`fixed bottom-5 right-5 z-40 ${className}`}>
+    <div className={`fixed bottom-3.5 right-3.5 sm:bottom-5 sm:right-5 z-40 ${className}`}>
       <button
         onClick={toggleMusic}
         type="button"
-        aria-label={isPlaying ? "Mute traditional background music" : "Play traditional background music"}
-        className={`group relative flex items-center space-x-2 px-3.5 py-2.5 rounded-full shadow-lg border transition-all duration-300 backdrop-blur-md focus:outline-hidden focus:ring-2 focus:ring-[#B08D57] ${
+        aria-label={isPlaying ? "Mute ambient background sound" : "Play ambient background sound"}
+        className={`group relative flex items-center space-x-1.5 sm:space-x-2 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-full shadow-lg border transition-all duration-300 backdrop-blur-md focus:outline-hidden focus:ring-2 focus:ring-[#C6A15B] cursor-pointer min-h-[40px] sm:min-h-[44px] ${
           isPlaying
-            ? 'bg-[#6D1F2A] border-[#B08D57] text-[#FFFDF8] shadow-amber-900/30'
-            : 'bg-[#FFFDF8]/90 border-[#B08D57]/50 text-[#6D1F2A] hover:bg-[#FFFDF8] hover:border-[#B08D57]'
+            ? 'bg-[#064E3B] border-[#C6A15B] text-[#FAF7EF] shadow-emerald-950/40'
+            : 'bg-[#FFFDF9]/95 border-[#C6A15B]/50 text-[#064E3B] hover:bg-[#FFFDF9] hover:border-[#C6A15B]'
         }`}
       >
         {isPlaying ? (
           <>
-            <Volume2 className="w-4 h-4 text-[#DFC794] animate-pulse" />
-            {/* Animated Sound Waves */}
+            <Volume2 className="w-4 h-4 text-[#E5D3A1] animate-pulse" />
             <div className="flex items-center space-x-0.5 h-3">
-              <span className="w-0.5 bg-[#DFC794] h-2 animate-[bounce_1s_infinite_100ms]" />
-              <span className="w-0.5 bg-[#DFC794] h-3 animate-[bounce_1s_infinite_300ms]" />
-              <span className="w-0.5 bg-[#DFC794] h-1.5 animate-[bounce_1s_infinite_200ms]" />
+              <span className="w-0.5 bg-[#E5D3A1] h-2 animate-[bounce_1s_infinite_100ms]" />
+              <span className="w-0.5 bg-[#E5D3A1] h-3 animate-[bounce_1s_infinite_300ms]" />
+              <span className="w-0.5 bg-[#E5D3A1] h-1.5 animate-[bounce_1s_infinite_200ms]" />
             </div>
-            <span className="text-xs font-serif tracking-wider hidden sm:inline text-[#DFC794]">
-              {useSynth ? "Vedic Drone" : "Music Playing"}
+            <span className="text-xs font-serif tracking-wider hidden sm:inline text-[#E5D3A1]">
+              {weddingConfig.music?.trackName || "Ambient Harmony"}
             </span>
           </>
         ) : (
           <>
-            <Music className="w-4 h-4 text-[#B08D57] group-hover:scale-110 transition-transform" />
-            <span className="text-xs font-serif tracking-wider text-[#382A22]">
-              Play Music
+            <Music className="w-4 h-4 text-[#C6A15B] group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-serif tracking-wider text-[#17352C]">
+              Play Ambient Sound
             </span>
           </>
         )}

@@ -1,137 +1,111 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #F8F1E3;
-  --color-gold: #B08D57;
-  --color-gold-light: #DFC794;
-  --color-gold-dark: #8C6D3B;
-  --color-gold-shimmer: #F5E8C7;
-  --color-maroon: #6D1F2A;
-  --color-maroon-dark: #4A131C;
-  --color-maroon-light: #8E2B3A;
-  --color-maroon-soft: #F5EBEB;
-  --color-green-accent: #263D30;
-  --color-green-light: #3D5A47;
-  --color-brown-text: #382A22;
-  --color-brown-muted: #6B5B52;
-  --color-cream: #FFFDF8;
-  --color-cream-soft: #F9F5EC;
+  --color-emerald-deep: #064E3B;
+  --color-forest: #0B3D2E;
+  --color-emerald-dark: #032B20;
+  --color-emerald-light: #0D5C46;
+  --color-emerald-soft: #E8F3EE;
   
+  --color-gold-antique: #C6A15B;
+  --color-gold-champagne: #E5D3A1;
+  --color-gold-dark: #9A7730;
+  --color-gold-shimmer: #F5E8C7;
+  
+  --color-ivory: #FAF7EF;
+  --color-ivory-warm: #F4EFE2;
+  --color-cream: #FFFDF9;
+  
+  --color-text-dark: #17352C;
+  --color-text-muted: #425F54;
+  --color-text-gold: #A47E35;
+
   --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-display: "Cinzel", Georgia, serif;
+  --font-arabic: "Amiri", "Noto Naskh Arabic", serif;
   --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
-  --bg-ivory: #F8F1E3;
-  --gold-primary: #B08D57;
-  --maroon-primary: #6D1F2A;
-  --text-dark: #382A22;
+  --color-emerald-deep: #064E3B;
+  --color-forest: #0B3D2E;
+  --color-gold-antique: #C6A15B;
+  --color-gold-champagne: #E5D3A1;
+  --color-ivory: #FAF7EF;
+  --color-text-dark: #17352C;
 }
 
 /* Custom Base & Smooth Scrolling */
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
-  background-color: #F8F1E3;
-  color: #382A22;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #FAF7EF;
+  color: #17352C;
 }
 
-/* Authentic Indian Paper & Silk Subtle Texture */
-.bg-silk-pattern {
-  background-color: #F8F1E3;
+.font-arabic {
+  font-family: "Amiri", "Noto Naskh Arabic", serif;
+}
+
+/* Islamic Geometric Star Pattern for Warm Ivory Stationery Background */
+.bg-islamic-stationery {
+  background-color: #FAF7EF;
   background-image: 
-    radial-gradient(circle at 100% 150%, rgba(176, 141, 87, 0.05) 24%, rgba(109, 31, 42, 0.03) 25%, transparent 28%),
-    radial-gradient(circle at 0% 150%, rgba(176, 141, 87, 0.05) 24%, rgba(109, 31, 42, 0.03) 25%, transparent 28%),
-    linear-gradient(135deg, rgba(255, 253, 248, 0.7) 0%, rgba(248, 241, 227, 0.9) 100%);
+    radial-gradient(circle at 50% 50%, rgba(198, 161, 91, 0.06) 1px, transparent 1px),
+    linear-gradient(to right, rgba(198, 161, 91, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(198, 161, 91, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
 }
 
-.bg-mandapam-texture {
-  background-color: #FFFDF8;
+/* Deep Emerald Islamic Pattern for Cover & Rich Accents */
+.bg-emerald-pattern {
+  background-color: #064E3B;
   background-image: 
-    radial-gradient(rgba(176, 141, 87, 0.07) 1px, transparent 0);
-  background-size: 20px 20px;
+    radial-gradient(circle at 50% 50%, rgba(229, 211, 161, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(11, 61, 46, 0.95) 0%, rgba(6, 78, 59, 1) 50%, rgba(3, 43, 32, 0.98) 100%);
+  background-size: 28px 28px, 100% 100%;
 }
 
-/* Gold Metallic Foil Gradients */
+/* Refined Antique Gold Foil Text */
 .gold-foil-text {
-  background: linear-gradient(135deg, #8C6D3B 0%, #B08D57 30%, #F5E8C7 50%, #B08D57 70%, #755627 100%);
+  background: linear-gradient(135deg, #9A7730 0%, #C6A15B 35%, #F5E8C7 50%, #C6A15B 65%, #8A6728 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-foil-bg {
-  background: linear-gradient(135deg, #8C6D3B 0%, #B08D57 25%, #DFC794 50%, #B08D57 75%, #755627 100%);
+  background: linear-gradient(135deg, #9A7730 0%, #C6A15B 25%, #E5D3A1 50%, #C6A15B 75%, #8A6728 100%);
 }
 
-.maroon-gradient-bg {
-  background: linear-gradient(145deg, #80202F 0%, #6D1F2A 50%, #4D121B 100%);
+.emerald-gradient-bg {
+  background: linear-gradient(145deg, #0B3D2E 0%, #064E3B 55%, #032B20 100%);
 }
 
-.gold-border-double {
-  border: 3px double #B08D57;
-}
-
-.gold-frame {
+/* Luxury Islamic Frame with Gold Inset */
+.islamic-gold-frame {
   position: relative;
-  border: 1px solid rgba(176, 141, 87, 0.4);
+  border: 1px solid rgba(198, 161, 91, 0.45);
   box-shadow: 
-    0 0 0 4px #FFFDF8,
-    0 0 0 5px rgba(176, 141, 87, 0.6),
-    0 10px 30px -10px rgba(109, 31, 42, 0.15);
+    0 0 0 4px #FFFDF9,
+    0 0 0 5.5px rgba(198, 161, 91, 0.65),
+    0 15px 35px -10px rgba(6, 78, 59, 0.18);
 }
 
-/* Diya Flame Flicker Animation */
-@keyframes flameFlicker {
-  0%, 100% {
-    transform: scale(1) rotate(-0.5deg);
-    opacity: 0.95;
-    filter: drop-shadow(0 0 4px rgba(255, 179, 71, 0.8));
-  }
-  25% {
-    transform: scale(1.05, 0.96) rotate(1deg);
-    opacity: 1;
-    filter: drop-shadow(0 0 7px rgba(255, 159, 28, 0.9));
-  }
-  50% {
-    transform: scale(0.97, 1.04) rotate(-1deg);
-    opacity: 0.92;
-    filter: drop-shadow(0 0 5px rgba(255, 190, 11, 0.85));
-  }
-  75% {
-    transform: scale(1.02, 0.98) rotate(0.5deg);
-    opacity: 0.98;
-    filter: drop-shadow(0 0 6px rgba(255, 138, 0, 0.9));
-  }
+.islamic-cover-frame {
+  position: relative;
+  border: 1.5px solid rgba(229, 211, 161, 0.6);
+  box-shadow: 
+    0 0 0 4px #064E3B,
+    0 0 0 6px rgba(198, 161, 91, 0.75),
+    0 25px 50px -12px rgba(3, 43, 32, 0.5);
 }
 
-.animate-flame {
-  animation: flameFlicker 2.4s ease-in-out infinite;
-  transform-origin: bottom center;
+/* Traditional Islamic Arch Clip Shape (Pointed Moorish / Horseshoe Arch) */
+.arch-top {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
 }
 
-/* Subtle Golden Shimmer */
-@keyframes shimmerPass {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.shimmer-button {
-  background-size: 200% auto;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.shimmer-button:hover {
-  background-position: right center;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(109, 31, 42, 0.35);
-}
-
-/* 3D Card Door / Flap Animation */
+/* 3D Perspective Card Container */
 .perspective-1500 {
   perspective: 1500px;
 }
@@ -170,9 +144,9 @@ html {
 /* Reveal Inner Sanctum */
 .invitation-reveal {
   opacity: 0;
-  transform: scale(0.97) translateY(12px);
-  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 250ms,
-              transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 250ms;
+  transform: scale(0.98) translateY(12px);
+  transition: opacity 850ms cubic-bezier(0.16, 1, 0.3, 1) 200ms,
+              transform 850ms cubic-bezier(0.16, 1, 0.3, 1) 200ms;
 }
 
 .invitation-reveal.is-visible {
@@ -180,32 +154,64 @@ html {
   transform: scale(1) translateY(0);
 }
 
-/* Gentle Floating Animation for Ornaments */
-@keyframes subtleFloat {
+/* Subtle Shimmer for Gold Accents */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-gold-shimmer {
+  background-size: 200% auto;
+  animation: goldShimmer 6s ease-in-out infinite;
+}
+
+/* Gentle Floating for Lanterns */
+@keyframes lanternSway {
   0%, 100% {
-    transform: translateY(0);
+    transform: rotate(-1deg);
   }
   50% {
-    transform: translateY(-5px);
+    transform: rotate(1deg);
   }
 }
 
-.animate-subtle-float {
-  animation: subtleFloat 4s ease-in-out infinite;
+.animate-lantern-sway {
+  animation: lanternSway 5s ease-in-out infinite;
+  transform-origin: top center;
 }
 
-/* Reduced motion accessibility */
+/* Glow Pulse for Lantern Light */
+@keyframes lanternGlow {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(229, 211, 161, 0.5));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(229, 211, 161, 0.8));
+  }
+}
+
+.animate-lantern-glow {
+  animation: lanternGlow 3s ease-in-out infinite;
+}
+
+/* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .animate-flame,
-  .animate-subtle-float,
-  .shimmer-button {
+  .animate-lantern-sway,
+  .animate-lantern-glow,
+  .animate-gold-shimmer {
     animation: none !important;
     transition: none !important;
   }
   
   .card-door-left,
   .card-door-right {
-    transition: opacity 300ms ease-in-out !important;
+    transition: opacity 250ms ease-in-out !important;
     transform: none !important;
   }
   
@@ -216,22 +222,45 @@ html {
   }
   
   .invitation-reveal {
-    transition: opacity 300ms ease-in-out !important;
+    transition: opacity 250ms ease-in-out !important;
     transform: none !important;
   }
 }
 
-/* Custom Scrollbar for Luxury Feel */
+/* Mobile-specific presentation adjustments (leaves desktop >767px 100% unchanged) */
+@media (max-width: 767px) {
+  .perspective-1500 {
+    perspective: 1100px;
+  }
+
+  .islamic-gold-frame {
+    box-shadow: 
+      0 0 0 2.5px #FFFDF9,
+      0 0 0 4px rgba(198, 161, 91, 0.6),
+      0 10px 25px -8px rgba(6, 78, 59, 0.15);
+  }
+
+  /* Prevent door edge overshoot outside small screen viewports */
+  .card-door-left.is-open {
+    transform: rotateY(-95deg);
+  }
+
+  .card-door-right.is-open {
+    transform: rotateY(95deg);
+  }
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F1E3;
+  background: #FAF7EF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B08D57;
+  background: #C6A15B;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8C6D3B;
+  background: #9A7730;
 }

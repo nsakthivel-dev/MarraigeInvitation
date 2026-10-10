@@ -1,159 +1,151 @@
 /**
  * ==============================================================================
- * CENTRALIZED SOUTH INDIAN WEDDING INVITATION CONFIGURATION
+ * CENTRALIZED ISLAMIC WEDDING INVITATION CONFIGURATION
  * ==============================================================================
  * 
  * Replace the bracketed placeholder values (e.g., "[Groom's Name]") with the
- * actual wedding information before sending to family and friends.
+ * actual wedding details when ready. All components read directly from here.
  * 
- * All components read directly from this single file.
+ * Keep placeholders clean, natural, and easily editable.
  */
 
 export const weddingConfig = {
   // ---------------------------------------------------------------------------
-  // 1. TRADITIONAL BLESSINGS & INVOCATION
+  // 1. SPIRITUAL INVOCATIONS & BISMILLAH
   // ---------------------------------------------------------------------------
-  traditionalInvocation: "|| ஸ்ரீ கணேஷாய நம: ||",
-  traditionalInvocationEnglish: "|| Om Sri Ganeshaya Namaha ||",
-  blessingsTitle: "With the Blessings of Our Elders & Almighty",
-  
+  arabicGreeting: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+  arabicGreetingTranslation: "In the name of Allah, the Most Gracious, the Most Merciful.",
+  blessingsTitle: "With the Blessings of Allah",
+  invitationTitle: "Wedding Invitation",
+  bismillahHeader: "Bismillah",
+
   // ---------------------------------------------------------------------------
-  // 2. THE COUPLE & FAMILIES
+  // 2. INVITATION MESSAGE
   // ---------------------------------------------------------------------------
+  invitationMessage:
+    "With the blessings of Allah, we joyfully invite you to join us in celebrating the Nikah of our beloved children. Your presence, prayers, and blessings will make this special occasion even more meaningful to our families.",
+
+  // ---------------------------------------------------------------------------
+  // 3. THE COUPLE & FAMILIES
+  // ---------------------------------------------------------------------------
+  familyGreeting: "Together With Their Families",
+
   groom: {
     name: "[Groom's Name]",
-    qualification: "[B.Tech / M.S. / Profession]",
+    qualification: "[Profession / Education]", // Optional, set to "" to hide
     sonOf: "Son of",
     fatherName: "[Groom's Father's Name]",
     motherName: "[Groom's Mother's Name]",
-    grandParents: "[Paternal / Maternal Grandparents]", // Optional
-    nativePlace: "[Chennai, Tamil Nadu]", // Optional
+    familyDetails: "[Groom's Family Lineage / City]", // Optional
+    city: "Chennai, Tamil Nadu",
   },
 
   bride: {
     name: "[Bride's Name]",
-    qualification: "[B.E. / M.B.A. / Profession]",
+    qualification: "[Profession / Education]", // Optional, set to "" to hide
     daughterOf: "Daughter of",
     fatherName: "[Bride's Father's Name]",
     motherName: "[Bride's Mother's Name]",
-    grandParents: "[Paternal / Maternal Grandparents]", // Optional
-    nativePlace: "[Madurai, Tamil Nadu]", // Optional
+    familyDetails: "[Bride's Family Lineage / City]", // Optional
+    city: "Chennai, Tamil Nadu",
   },
 
   // ---------------------------------------------------------------------------
-  // 3. INVITATION MESSAGE
+  // 4. THE NIKAH & CELEBRATION DETAILS
   // ---------------------------------------------------------------------------
-  invitationMessage: 
-    "With the blessings of our elders and the grace of the Almighty, we joyfully invite you and your family to celebrate the sacred wedding ceremony of our beloved children. We solicit your esteemed presence and heartfelt blessings on this auspicious occasion.",
-
-  // ---------------------------------------------------------------------------
-  // 4. AUSPICIOUS DATE & CEREMONIES
-  // ---------------------------------------------------------------------------
-  weddingDateISO: "2026-11-29T09:30:00+05:30", // ISO 8601 format for countdown / calendar
+  weddingDateISO: "2026-11-29T11:00:00+05:30", // ISO 8601 format for countdown & calendar
   displayDate: "Sunday, 29th November 2026",
-  tamilDate: "கார்த்திகை 14, சுபகிருது வருடம்", // Traditional Tamil calendar month/date (optional)
   dayOfWeek: "Sunday",
+  hijriDate: "19 Jumada al-Awwal 1448 AH",
   
-  // Auspicious Muhurtham Timings
-  muhurtham: {
-    title: "Auspicious Muhurtham",
-    time: "09:00 AM – 10:30 AM",
-    lagnam: "[Dhanur / Simha] Lagnam",
-    subhaMuhurthamNote: "In the auspicious presence of relatives and well-wishers",
+  nikah: {
+    title: "The Nikah Ceremony",
+    time: "11:00 AM onwards",
+    ceremonyNote: "In sha Allah, to be solemnized in the gracious presence of family and loved ones",
   },
 
-  // Additional Ceremonies (Reception, Nalangu, Vratham, etc.)
+  // Additional events (e.g. Walima / Reception)
   ceremonies: [
     {
-      id: "reception",
-      title: "Wedding Reception",
-      date: "Saturday, 28th November 2026",
-      time: "06:30 PM onwards",
-      description: "An evening of joyful celebration, music, and dinner to felicitate the couple.",
-      accent: "Evening Felicitations",
+      id: "nikah",
+      title: "The Nikah Ceremony",
+      date: "Sunday, 29th November 2026",
+      time: "11:00 AM onwards",
+      description: "The sacred marriage contract solemnized with prayers and duas for a blessed union, followed by traditional wedding feast.",
+      accent: "Sacred Covenant",
     },
     {
-      id: "muhurtham",
-      title: "Sacred Muhurtham & Mangalya Dharanam",
+      id: "walima",
+      title: "The Walima Reception",
       date: "Sunday, 29th November 2026",
-      time: "09:00 AM – 10:30 AM",
-      description: "Sacred Vedic rituals, Kanyadanam, and the auspicious tying of the Thirumangalyam, followed by traditional wedding feast.",
-      accent: "Sacred Union",
-    },
-    {
-      id: "nalangu",
-      title: "Traditional Nalangu & Oonjal",
-      date: "Sunday, 29th November 2026",
-      time: "04:00 PM onwards",
-      description: "Joyous traditional post-wedding games and celebratory festivities.",
-      accent: "Celebration",
+      time: "07:00 PM onwards",
+      description: "A celebratory feast to felicitate the newlyweds and share joyful moments with family and friends.",
+      accent: "Celebration Feast",
     },
   ],
 
   // ---------------------------------------------------------------------------
-  // 5. VENUE & DIRECTIONS
+  // 5. CHENNAI VENUE & DIRECTIONS
   // ---------------------------------------------------------------------------
   venue: {
-    name: "[Sri Krishna Mahal / Grand Kalyana Mandapam]",
-    hallName: "[Air-Conditioned Main Hall]",
-    streetAddress: "[No. 108, Temple Ring Road, Near Kapaleeshwarar Temple]",
-    area: "[Mylapore]",
-    city: "[Chennai]",
-    state: "[Tamil Nadu]",
-    pincode: "[600004]",
-    landmark: "Opposite Temple Car Stand",
-    // Google Maps directions URL (opens straight in Google Maps app or browser)
-    googleMapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Chennai+Tamil+Nadu+India",
-    googleMapsEmbedQuery: "Chennai, Tamil Nadu, India",
+    name: "The Crescent Grand Convention Centre",
+    hallName: "Royal Grand Palace Banquet Hall",
+    streetAddress: "No. 48, Mount Poonamallee Road, Guindy",
+    area: "Guindy",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    pincode: "600032",
+    landmark: "Near Kathipara Junction & Guindy Metro Station",
+    // Direct Google Maps directions URL (opens in Maps app or browser)
+    googleMapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Guindy+Chennai+Tamil+Nadu+India",
   },
 
   // ---------------------------------------------------------------------------
-  // 6. CLOSING & FAMILY SIGNATURE
+  // 6. CLOSING MESSAGE, DUA & FAMILY SIGNATURE
   // ---------------------------------------------------------------------------
   closingMessage:
-    "Your gracious presence, prayers, and blessings are our greatest gifts as we embark on this sacred journey of companionship, love, and tradition.",
+    "May Allah bless this union with love, mercy, understanding, and happiness. We humbly request your presence and duas as our families come together to celebrate this blessed occasion.",
+
+  duaGreeting: "بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+  duaTranslation: "May Allah bless you, shower His blessings upon you, and unite you both in goodness.",
   
+  appreciationMessage: "Your presence and prayers are sincerely appreciated.",
+
   familySignature: {
-    complimentsText: "With Best Compliments From:",
+    complimentsText: "With Warm Compliments & Duas From:",
     families: "[The Groom's Family] & [The Bride's Family]",
-    subtext: "Relatives, Friends, and Well-Wishers",
+    subtext: "Relatives, Friends, and Well-Wishers in Chennai",
   },
 
   // ---------------------------------------------------------------------------
   // 7. OPTIONAL MEDIA & MUSIC
   // ---------------------------------------------------------------------------
-  // Leave null to use the elegant traditional motifs, or provide a public URL/path
-  couplePhotoUrl: null, // e.g. "/images/couple.jpg"
-  venuePhotoUrl: null,  // e.g. "/images/venue.jpg"
-
-  // Audio configuration:
-  // If a music file exists at audioUrl, it can be played.
-  // In addition, the site includes a serene traditional Indian Tanpura/Veena drone
-  // synthesizer powered by the Web Audio API that works completely offline with zero copyright!
   music: {
-    audioUrl: null, // e.g., "/audio/mangalya_dharanam.mp3"
-    trackName: "Auspicious Mangala Vadyam & Tanpura",
-    defaultEnabled: false, // Never autoplay before explicit user tap
+    audioUrl: null, // e.g. "/audio/islamic_wedding_melody.mp3"
+    trackName: "Serene Acoustic Harmony",
+    defaultEnabled: false, // Strict: never autoplay before user interaction
   },
 
   // ---------------------------------------------------------------------------
   // 8. WHATSAPP SHARING & METADATA
   // ---------------------------------------------------------------------------
   share: {
-    // Public URL to share. If empty, the app automatically detects window.location.href
-    publicWebsiteUrl: "", 
-    
-    // Generates the personalized WhatsApp share message
+    publicWebsiteUrl: "", // If empty, automatically uses window.location.href
+
     getWhatsAppMessage: (url) => {
-      return `🪔 *Traditional Wedding Invitation* 🪔\n\n` +
-        `With the blessings of our elders and the grace of the Almighty, we cordially invite you and your family to the wedding of:\n\n` +
-        `🤵 *[Groom's Name]* & 👰 *[Bride's Name]*\n\n` +
+      return `🌙 *Bismillah ir-Rahman ir-Rahim* 🌙\n\n` +
+        `With the blessings of Allah, we joyfully invite you to join us in celebrating the Nikah of:\n\n` +
+        `🤵 *[Groom's Name]*\n` +
+        `& \n` +
+        `👰 *[Bride's Name]*\n\n` +
+        `Together With Their Families\n\n` +
         `📅 *Date:* Sunday, 29th November 2026\n` +
-        `⏰ *Muhurtham:* 09:00 AM – 10:30 AM\n` +
-        `📍 *Venue:* [Sri Krishna Mahal / Grand Kalyana Mandapam], [Mylapore, Chennai]\n\n` +
-        `Please open our wedding invitation card here:\n` +
+        `⏰ *Nikah Ceremony:* 11:00 AM onwards\n` +
+        `📍 *Venue:* The Crescent Grand Convention Centre, Guindy, Chennai\n` +
+        `📌 *Address:* No. 48, Mount Poonamallee Road, Guindy, Chennai – 600032\n\n` +
+        `May Allah bless this union with love and barakah. Please open our digital wedding invitation card here:\n` +
         `${url}\n\n` +
-        `We look forward to your presence and blessings! 🙏✨`;
+        `Your presence and sincere duas are deeply appreciated! 🤲✨`;
     },
   },
 };
