@@ -2,6 +2,7 @@ import React from 'react';
 import weddingConfig from '../data/invitation';
 import IslamicCorner from './IslamicCorner';
 import DecorativeDivider from './DecorativeDivider';
+import WeddingScarf from './WeddingScarf';
 
 /**
  * Section B: The Couple (Visual Centerpiece)
@@ -94,13 +95,9 @@ export const CoupleSection = () => {
           </div>
         </div>
 
-        {/* Centerpiece "&" Medallion on Desktop */}
-        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex-col items-center justify-center">
-          <div className="w-12 h-12 rounded-full bg-[#064E3B] border-2 border-[#C6A15B] shadow-xl flex items-center justify-center text-[#FAF7EF]">
-            <span className="font-serif italic font-bold text-lg tracking-wider text-[#E5D3A1]">
-              &
-            </span>
-          </div>
+        {/* Ceremonial Wedding Silk Scarf on Desktop (Connecting Groom & Bride Cards) */}
+        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center w-[210px] lg:w-[250px]">
+          <WeddingScarf idPrefix="desktop-scarf" className="w-full drop-shadow-md" />
         </div>
 
         {/* BRIDE'S CARD */}
@@ -233,11 +230,9 @@ export const CoupleSection = () => {
               </div>
             </div>
 
-            {/* Connecting Center "&" Medallion */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-              <div className="w-6 h-6 rounded-full bg-[#064E3B] border border-[#C6A15B] shadow-md flex items-center justify-center text-[#E5D3A1]">
-                <span className="font-serif italic font-bold text-[10px] leading-none">&</span>
-              </div>
+            {/* Connecting Ceremonial Wedding Silk Scarf */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-[105px] min-[390px]:w-[120px] sm:w-[145px]">
+              <WeddingScarf idPrefix="mobile-scarf" className="w-full drop-shadow-sm" />
             </div>
 
             {/* BRIDE (Right Column) */}
@@ -336,13 +331,11 @@ export const CoupleSection = () => {
               </p>
             </div>
 
-            {/* Center Islamic & Ornament */}
-            <div className="flex items-center justify-center my-1.5">
-              <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#C6A15B]/50" />
-              <div className="mx-2 w-6 h-6 rounded-full bg-[#064E3B] border border-[#C6A15B] flex items-center justify-center text-[#E5D3A1] shadow-xs">
-                <span className="font-serif italic font-bold text-[10px] leading-none">&</span>
+            {/* Draped Ceremonial Wedding Scarf (Narrow Mobile) */}
+            <div className="flex items-center justify-center my-1 pointer-events-none">
+              <div className="w-[125px] max-w-[135px]">
+                <WeddingScarf idPrefix="narrow-scarf" className="w-full drop-shadow-sm" />
               </div>
-              <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#C6A15B]/50" />
             </div>
 
             {/* Bride Section (Lower Half) */}
