@@ -39,7 +39,7 @@ export const CoupleSection = () => {
           <IslamicCorner position="bottom-right" size={50} className="bottom-1 right-1 opacity-75" />
 
           {/* Groom Islamic Medallion (Crescent & 8-pointed star emblem) */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center relative z-10">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFFDF9] to-[#FAF7EF] border border-[#C6A15B] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
               <svg viewBox="0 0 36 36" className="w-7 h-7 sm:w-8 sm:h-8 text-[#064E3B]" fill="none">
                 <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
@@ -75,7 +75,7 @@ export const CoupleSection = () => {
           </div>
 
           {/* Groom's Family Details */}
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5 relative z-10">
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
               {groom.sonOf}
             </span>
@@ -96,8 +96,8 @@ export const CoupleSection = () => {
         </div>
 
         {/* Traditional Wedding Ceremonial Fabric Knot (Connecting Groom & Bride Cards) */}
-        {/* Positioned between identity section and family details, completely clear of text */}
-        <div className="hidden md:flex absolute left-1/2 top-[52%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center w-[200px] lg:w-[240px]">
+        {/* Deep natural U-shaped drape extending toward upper-inner card corners and dipping in center gap */}
+        <div className="hidden md:flex absolute left-1/2 top-[24%] -translate-x-1/2 pointer-events-none items-center justify-center w-[340px] md:w-[380px] lg:w-[440px] z-20">
           <WeddingScarf idPrefix="desktop-knot" className="w-full" />
         </div>
 
@@ -107,7 +107,7 @@ export const CoupleSection = () => {
           <IslamicCorner position="bottom-left" size={50} className="bottom-1 left-1 opacity-75" />
 
           {/* Bride Islamic Medallion (Eight-pointed star & floral motif) */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center relative z-10">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFFDF9] to-[#FAF7EF] border border-[#C6A15B] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
               <svg viewBox="0 0 36 36" className="w-7 h-7 sm:w-8 sm:h-8 text-[#064E3B]" fill="none">
                 <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
@@ -140,7 +140,7 @@ export const CoupleSection = () => {
           </div>
 
           {/* Bride's Family Details */}
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5 relative z-10">
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
               {bride.daughterOf}
             </span>
@@ -181,7 +181,7 @@ export const CoupleSection = () => {
             
             {/* GROOM (Left Column) */}
             <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center relative z-10">
                 {/* Groom's Emblem */}
                 <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 shadow-xs">
                   <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
@@ -215,7 +215,7 @@ export const CoupleSection = () => {
               </div>
 
               {/* Groom's Parentage */}
-              <div className="mt-1 pt-1.5 border-t border-[#C6A15B]/20 flex flex-col items-center">
+              <div className="mt-2.5 pt-2 border-t border-[#C6A15B]/20 flex flex-col items-center relative z-10">
                 <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-serif italic mb-0.5">
                   {groom.sonOf}
                 </span>
@@ -231,14 +231,14 @@ export const CoupleSection = () => {
               </div>
             </div>
 
-            {/* Connecting Traditional Ceremonial Wedding Fabric Knot */}
-            <div className="absolute left-1/2 top-[51%] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-[105px] min-[390px]:w-[120px] sm:w-[140px]">
+            {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Deep U-Drape) */}
+            <div className="absolute left-1/2 top-[20%] -translate-x-1/2 z-15 pointer-events-none flex items-center justify-center w-[160px] min-[390px]:w-[185px] sm:w-[220px]">
               <WeddingScarf idPrefix="mobile-knot" className="w-full" />
             </div>
 
             {/* BRIDE (Right Column) */}
             <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center relative z-10">
                 {/* Bride's Emblem */}
                 <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 shadow-xs">
                   <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
@@ -270,7 +270,7 @@ export const CoupleSection = () => {
               </div>
 
               {/* Bride's Parentage */}
-              <div className="mt-1 pt-1.5 border-t border-[#C6A15B]/20 flex flex-col items-center">
+              <div className="mt-2.5 pt-2 border-t border-[#C6A15B]/20 flex flex-col items-center relative z-10">
                 <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-serif italic mb-0.5">
                   {bride.daughterOf}
                 </span>
