@@ -13,7 +13,9 @@ import MusicToggle from './components/MusicToggle';
 import IslamicCorner from './components/IslamicCorner';
 
 function App() {
-  const [isCardOpen, setIsCardOpen] = useState(false);
+  const [isCardOpen, setIsCardOpen] = useState(() => {
+    return typeof window !== 'undefined' && window.location.search.includes('open=true');
+  });
 
   const handleOpenInvitation = () => {
     setIsCardOpen(true);

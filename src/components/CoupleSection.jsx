@@ -39,7 +39,7 @@ export const CoupleSection = () => {
           <IslamicCorner position="bottom-right" size={50} className="bottom-1 right-1 opacity-75" />
 
           {/* Groom Islamic Medallion (Crescent & 8-pointed star emblem) */}
-          <div className="flex flex-col items-center relative z-10">
+          <div className="flex flex-col items-center relative z-20">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFFDF9] to-[#FAF7EF] border border-[#C6A15B] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
               <svg viewBox="0 0 36 36" className="w-7 h-7 sm:w-8 sm:h-8 text-[#064E3B]" fill="none">
                 <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
@@ -96,8 +96,8 @@ export const CoupleSection = () => {
         </div>
 
         {/* Traditional Wedding Ceremonial Fabric Knot (Connecting Groom & Bride Cards) */}
-        {/* Anchored at upper-inner card corners, gracefully draping down into center gap knot */}
-        <div className="hidden md:flex absolute left-1/2 top-2 md:top-3 lg:top-4 -translate-x-1/2 pointer-events-none items-center justify-center w-[180px] md:w-[210px] lg:w-[240px] z-20">
+        {/* Anchored at upper-inner card corners (Groom top-right, Bride top-left) with natural U-drape into center knot */}
+        <div className="hidden md:flex absolute left-1/2 -top-1 md:top-0 lg:top-1 -translate-x-1/2 pointer-events-none items-center justify-center w-[250px] md:w-[290px] lg:w-[340px] z-15">
           <WeddingScarf idPrefix="desktop-knot" className="w-full" />
         </div>
 
@@ -107,7 +107,7 @@ export const CoupleSection = () => {
           <IslamicCorner position="bottom-left" size={50} className="bottom-1 left-1 opacity-75" />
 
           {/* Bride Islamic Medallion (Eight-pointed star & floral motif) */}
-          <div className="flex flex-col items-center relative z-10">
+          <div className="flex flex-col items-center relative z-20">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFFDF9] to-[#FAF7EF] border border-[#C6A15B] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
               <svg viewBox="0 0 36 36" className="w-7 h-7 sm:w-8 sm:h-8 text-[#064E3B]" fill="none">
                 <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
@@ -181,7 +181,7 @@ export const CoupleSection = () => {
             
             {/* GROOM (Left Column) */}
             <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
-              <div className="flex flex-col items-center relative z-10">
+              <div className="flex flex-col items-center relative z-20">
                 {/* Groom's Emblem */}
                 <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 shadow-xs">
                   <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
@@ -232,13 +232,13 @@ export const CoupleSection = () => {
             </div>
 
             {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Anchored at Upper-Inner Corners) */}
-            <div className="absolute left-1/2 top-1.5 sm:top-2 -translate-x-1/2 z-15 pointer-events-none flex items-center justify-center w-[105px] min-[390px]:w-[120px] sm:w-[140px]">
+            <div className="absolute left-1/2 -top-0.5 min-[390px]:top-0 sm:top-0.5 -translate-x-1/2 z-15 pointer-events-none flex items-center justify-center w-[125px] min-[375px]:w-[136px] min-[390px]:w-[148px] min-[414px]:w-[158px] sm:w-[176px]">
               <WeddingScarf idPrefix="mobile-knot" className="w-full" />
             </div>
 
             {/* BRIDE (Right Column) */}
             <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
-              <div className="flex flex-col items-center relative z-10">
+              <div className="flex flex-col items-center relative z-20">
                 {/* Bride's Emblem */}
                 <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 shadow-xs">
                   <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
