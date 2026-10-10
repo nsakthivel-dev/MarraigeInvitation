@@ -27,12 +27,12 @@ export const CoupleSection = () => {
         </h3>
       </div>
 
-      {/* Couple Cards Grid: Stacks gracefully on mobile, side-by-side on desktop */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 md:gap-6 lg:gap-10 items-stretch relative">
+      {/* ================================================================= */}
+      {/* DESKTOP VIEW (Width >= 768px): Strictly Preserved Original Layout */}
+      {/* ================================================================= */}
+      <div className="hidden md:grid md:grid-cols-2 md:gap-6 lg:gap-10 items-stretch relative">
         
-        {/* ================================================================= */}
         {/* GROOM'S CARD */}
-        {/* ================================================================= */}
         <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-between text-center islamic-gold-frame">
           <IslamicCorner position="top-left" size={50} className="top-1 left-1 opacity-75" />
           <IslamicCorner position="bottom-right" size={50} className="bottom-1 right-1 opacity-75" />
@@ -78,11 +78,11 @@ export const CoupleSection = () => {
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
               {groom.sonOf}
             </span>
-            <p className="text-sm sm:text-lg font-serif font-bold text-[#17352C]">
+            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
               {groom.fatherName}
             </p>
             <p className="text-xs font-serif italic text-[#C6A15B]">&</p>
-            <p className="text-sm sm:text-lg font-serif font-bold text-[#17352C]">
+            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
               {groom.motherName}
             </p>
 
@@ -103,18 +103,7 @@ export const CoupleSection = () => {
           </div>
         </div>
 
-        {/* Mobile Connecting "&" Medallion between stacked cards */}
-        <div className="flex md:hidden items-center justify-center -my-1 z-10">
-          <div className="w-8 h-8 rounded-full bg-[#064E3B] border border-[#C6A15B] shadow-md flex items-center justify-center text-[#FAF7EF]">
-            <span className="font-serif italic font-bold text-sm tracking-wider text-[#E5D3A1]">
-              &
-            </span>
-          </div>
-        </div>
-
-        {/* ================================================================= */}
         {/* BRIDE'S CARD */}
-        {/* ================================================================= */}
         <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-between text-center islamic-gold-frame">
           <IslamicCorner position="top-right" size={50} className="top-1 right-1 opacity-75" />
           <IslamicCorner position="bottom-left" size={50} className="bottom-1 left-1 opacity-75" />
@@ -157,11 +146,11 @@ export const CoupleSection = () => {
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
               {bride.daughterOf}
             </span>
-            <p className="text-sm sm:text-lg font-serif font-bold text-[#17352C]">
+            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
               {bride.fatherName}
             </p>
             <p className="text-xs font-serif italic text-[#C6A15B]">&</p>
-            <p className="text-sm sm:text-lg font-serif font-bold text-[#17352C]">
+            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
               {bride.motherName}
             </p>
 
@@ -173,6 +162,241 @@ export const CoupleSection = () => {
           </div>
         </div>
 
+      </div>
+
+      {/* ================================================================= */}
+      {/* MOBILE VIEW (Width < 768px): Unified Single Wedding Section       */}
+      {/* Both Groom & Bride Visible Together in One Harmonious Card       */}
+      {/* ================================================================= */}
+      <div className="block md:hidden">
+        <div className="relative bg-[#FFFDF9] rounded-2xl p-2.5 min-[360px]:p-3 min-[390px]:p-3.5 sm:p-5 border border-[#C6A15B]/40 shadow-xl islamic-gold-frame overflow-hidden">
+          {/* Delicate Geometric Corner Accents */}
+          <IslamicCorner position="top-left" size={36} className="top-1 left-1 opacity-60" />
+          <IslamicCorner position="top-right" size={36} className="top-1 right-1 opacity-60" />
+          <IslamicCorner position="bottom-left" size={36} className="bottom-1 left-1 opacity-60" />
+          <IslamicCorner position="bottom-right" size={36} className="bottom-1 right-1 opacity-60" />
+
+          {/* ------------------------------------------------------------- */}
+          {/* 1. Standard Mobile (>= 360px): Two Equal-Width Cards Side-by-Side */}
+          {/* ------------------------------------------------------------- */}
+          <div className="hidden min-[360px]:grid grid-cols-2 gap-2 min-[390px]:gap-2.5 sm:gap-4 items-stretch relative">
+            
+            {/* GROOM (Left Column) */}
+            <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
+              <div className="flex flex-col items-center">
+                {/* Groom's Emblem */}
+                <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 shadow-xs">
+                  <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
+                    <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
+                    <path
+                      d="M 21 8 C 14 8 9 13 9 20 C 9 25 12.5 29 17 29.8 C 13.5 28 11.5 24.5 11.5 20 C 11.5 14.5 15.5 10.5 21 8 Z"
+                      fill="#064E3B"
+                    />
+                    <g transform="translate(21, 17) scale(0.65)">
+                      <rect x="-4" y="-4" width="8" height="8" fill="#C6A15B" rx="0.5" />
+                      <rect x="-4" y="-4" width="8" height="8" fill="#C6A15B" rx="0.5" transform="rotate(45)" />
+                    </g>
+                  </svg>
+                </div>
+
+                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans mb-0.5">
+                  The Groom
+                </span>
+
+                <h4 className="text-[13px] min-[375px]:text-sm min-[390px]:text-base font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+                  {groom.name}
+                </h4>
+
+                {groom.qualification && (
+                  <p className="text-[9px] min-[375px]:text-[10px] min-[390px]:text-[11px] font-sans text-[#425F54] font-medium leading-snug break-words mb-1">
+                    {groom.qualification}
+                  </p>
+                )}
+
+                <div className="w-8 min-[390px]:w-10 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent my-1" />
+              </div>
+
+              {/* Groom's Parentage */}
+              <div className="mt-1 pt-1.5 border-t border-[#C6A15B]/20 flex flex-col items-center">
+                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-serif italic mb-0.5">
+                  {groom.sonOf}
+                </span>
+                <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
+                  {groom.fatherName}
+                </p>
+                <p className="text-[9px] min-[390px]:text-[10px] font-serif italic text-[#C6A15B] my-0.5">
+                  &
+                </p>
+                <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
+                  {groom.motherName}
+                </p>
+              </div>
+            </div>
+
+            {/* Connecting Center "&" Medallion */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+              <div className="w-6 h-6 rounded-full bg-[#064E3B] border border-[#C6A15B] shadow-md flex items-center justify-center text-[#E5D3A1]">
+                <span className="font-serif italic font-bold text-[10px] leading-none">&</span>
+              </div>
+            </div>
+
+            {/* BRIDE (Right Column) */}
+            <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl p-2 min-[390px]:p-2.5 sm:p-3 border border-[#C6A15B]/30 relative shadow-xs">
+              <div className="flex flex-col items-center">
+                {/* Bride's Emblem */}
+                <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 shadow-xs">
+                  <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
+                    <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
+                    <g transform="translate(18, 18)">
+                      <rect x="-7" y="-7" width="14" height="14" fill="#064E3B" rx="1" />
+                      <rect x="-7" y="-7" width="14" height="14" fill="#064E3B" rx="1" transform="rotate(45)" />
+                      <circle cx="0" cy="0" r="3" fill="#C6A15B" />
+                      <circle cx="0" cy="0" r="1.5" fill="#FAF7EF" />
+                    </g>
+                  </svg>
+                </div>
+
+                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans mb-0.5">
+                  The Bride
+                </span>
+
+                <h4 className="text-[13px] min-[375px]:text-sm min-[390px]:text-base font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+                  {bride.name}
+                </h4>
+
+                {bride.qualification && (
+                  <p className="text-[9px] min-[375px]:text-[10px] min-[390px]:text-[11px] font-sans text-[#425F54] font-medium leading-snug break-words mb-1">
+                    {bride.qualification}
+                  </p>
+                )}
+
+                <div className="w-8 min-[390px]:w-10 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent my-1" />
+              </div>
+
+              {/* Bride's Parentage */}
+              <div className="mt-1 pt-1.5 border-t border-[#C6A15B]/20 flex flex-col items-center">
+                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-serif italic mb-0.5">
+                  {bride.daughterOf}
+                </span>
+                <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
+                  {bride.fatherName}
+                </p>
+                <p className="text-[9px] min-[390px]:text-[10px] font-serif italic text-[#C6A15B] my-0.5">
+                  &
+                </p>
+                <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
+                  {bride.motherName}
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ------------------------------------------------------------- */}
+          {/* 2. Narrow Mobile (< 360px): Single Integrated Stack Card     */}
+          {/* Prioritizes crystal-clear typography on 320px screens         */}
+          {/* ------------------------------------------------------------- */}
+          <div className="block min-[360px]:hidden space-y-2.5">
+            {/* Groom Section (Upper Half) */}
+            <div className="bg-[#FAF7EF]/60 rounded-xl p-2.5 border border-[#C6A15B]/30 text-center">
+              <div className="w-8 h-8 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mx-auto mb-1 shadow-xs">
+                <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 text-[#064E3B]" fill="none">
+                  <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
+                  <path
+                    d="M 21 8 C 14 8 9 13 9 20 C 9 25 12.5 29 17 29.8 C 13.5 28 11.5 24.5 11.5 20 C 11.5 14.5 15.5 10.5 21 8 Z"
+                    fill="#064E3B"
+                  />
+                  <g transform="translate(21, 17) scale(0.65)">
+                    <rect x="-4" y="-4" width="8" height="8" fill="#C6A15B" rx="0.5" />
+                    <rect x="-4" y="-4" width="8" height="8" fill="#C6A15B" rx="0.5" transform="rotate(45)" />
+                  </g>
+                </svg>
+              </div>
+              <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans block mb-0.5">
+                The Groom
+              </span>
+              <h4 className="text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+                {groom.name}
+              </h4>
+              {groom.qualification && (
+                <p className="text-[10px] font-sans text-[#425F54] font-medium leading-snug break-words mb-1">
+                  {groom.qualification}
+                </p>
+              )}
+              <div className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent mx-auto my-1" />
+              <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-serif italic block mt-1">
+                {groom.sonOf}
+              </span>
+              <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
+                {groom.fatherName}
+              </p>
+              <p className="text-[9px] font-serif italic text-[#C6A15B] my-0.5">&</p>
+              <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
+                {groom.motherName}
+              </p>
+            </div>
+
+            {/* Center Islamic & Ornament */}
+            <div className="flex items-center justify-center my-1.5">
+              <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#C6A15B]/50" />
+              <div className="mx-2 w-6 h-6 rounded-full bg-[#064E3B] border border-[#C6A15B] flex items-center justify-center text-[#E5D3A1] shadow-xs">
+                <span className="font-serif italic font-bold text-[10px] leading-none">&</span>
+              </div>
+              <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#C6A15B]/50" />
+            </div>
+
+            {/* Bride Section (Lower Half) */}
+            <div className="bg-[#FAF7EF]/60 rounded-xl p-2.5 border border-[#C6A15B]/30 text-center">
+              <div className="w-8 h-8 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mx-auto mb-1 shadow-xs">
+                <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 text-[#064E3B]" fill="none">
+                  <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
+                  <g transform="translate(18, 18)">
+                    <rect x="-7" y="-7" width="14" height="14" fill="#064E3B" rx="1" />
+                    <rect x="-7" y="-7" width="14" height="14" fill="#064E3B" rx="1" transform="rotate(45)" />
+                    <circle cx="0" cy="0" r="3" fill="#C6A15B" />
+                    <circle cx="0" cy="0" r="1.5" fill="#FAF7EF" />
+                  </g>
+                </svg>
+              </div>
+              <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans block mb-0.5">
+                The Bride
+              </span>
+              <h4 className="text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+                {bride.name}
+              </h4>
+              {bride.qualification && (
+                <p className="text-[10px] font-sans text-[#425F54] font-medium leading-snug break-words mb-1">
+                  {bride.qualification}
+                </p>
+              )}
+              <div className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent mx-auto my-1" />
+              <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-serif italic block mt-1">
+                {bride.daughterOf}
+              </span>
+              <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
+                {bride.fatherName}
+              </p>
+              <p className="text-[9px] font-serif italic text-[#C6A15B] my-0.5">&</p>
+              <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
+                {bride.motherName}
+              </p>
+            </div>
+          </div>
+
+          {/* ------------------------------------------------------------- */}
+          {/* Shared Residence & Location Footer (Beneath Both Cards)       */}
+          {/* ------------------------------------------------------------- */}
+          <div className="mt-2.5 sm:mt-3 pt-2 sm:pt-2.5 border-t border-[#C6A15B]/25 text-center">
+            <p className="text-[10px] min-[375px]:text-[11px] sm:text-xs text-[#425F54] font-sans">
+              Residence: <span className="font-semibold text-[#17352C]">
+                {groom.city && bride.city && groom.city === bride.city 
+                  ? groom.city 
+                  : [groom.city, bride.city].filter(Boolean).join(' • ')}
+              </span>
+            </p>
+          </div>
+
+        </div>
       </div>
 
       <DecorativeDivider icon="crescent" />

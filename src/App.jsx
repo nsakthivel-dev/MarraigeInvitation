@@ -48,7 +48,7 @@ function App() {
         <IslamicArchBorder className="opacity-90" />
 
         {/* Main Content Container with Warm Ivory Stationery Card Frame */}
-        <main className="max-w-4xl mx-auto px-2.5 sm:px-6 py-4 sm:py-10">
+        <main className="max-w-4xl mx-auto px-2.5 sm:px-6 pt-4 pb-16 sm:py-10">
           
           <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-[#C6A15B]/50 p-3.5 sm:p-8 md:p-12 islamic-gold-frame">
             
