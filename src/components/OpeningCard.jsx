@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import weddingConfig from '../data/invitation';
 import IslamicCorner from './IslamicCorner';
 import IslamicLantern from './IslamicLantern';
@@ -19,17 +19,6 @@ import IslamicLantern from './IslamicLantern';
  */
 export const OpeningCard = ({ isOpen, onOpen }) => {
   const [isOpening, setIsOpening] = useState(false);
-  const [isUnmounted, setIsUnmounted] = useState(false);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    // Once opened, fully unmount/hide after the smooth fade transition settles
-    // so the overlay can never remain on top of the main invitation.
-    const timer = setTimeout(() => {
-      setIsUnmounted(true);
-    }, 700);
-    return () => clearTimeout(timer);
-  }, [isOpen]);
 
   const handleOpenClick = () => {
     if (isOpening || isOpen) return;
@@ -41,7 +30,6 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
 
     setTimeout(() => {
       onOpen();
-      // Keep isOpening true so the doors stay open while the cover fades out
     }, duration);
   };
 
@@ -52,16 +40,15 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
     }
   };
 
-  if (isOpen && isUnmounted) {
+  // The moment the opening animation completes and onOpen() is called,
+  // dismiss the overlay immediately. No timer delay, no lingering semi-transparent card.
+  if (isOpen) {
     return null;
   }
 
   return (
     <div 
-      className={`fixed inset-0 flex items-center justify-center p-3 sm:p-6 transition-all duration-700 bg-[#0B3D2E] ${
-        isOpen ? 'pointer-events-none opacity-0 -z-10 invisible' : 'z-50 opacity-100 visible'
-      }`}
-      style={isOpen ? { display: isUnmounted ? 'none' : 'flex' } : undefined}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#0B3D2E]"
       role="dialog"
       aria-modal="true"
       aria-label="Islamic Wedding Invitation Envelope"
@@ -91,11 +78,11 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
         
         {/* Card Main Body */}
         <div 
-          className={`relative w-full rounded-2xl sm:rounded-3xl bg-[#064E3B] shadow-2xl transition-all duration-700 overflow-hidden transform-style-3d border-2 border-[#C6A15B]/70 ${
-            isOpening ? 'scale-105 opacity-90' : 'scale-100 hover:shadow-[0_30px_70px_-10px_rgba(3,43,32,0.65)]'
+          className={`relative w-full rounded-2xl sm:rounded-3xl shadow-2xl transition-all duration-700 overflow-hidden transform-style-3d ${
+            isOpening ? 'scale-105' : 'scale-100 hover:shadow-[0_30px_70px_-10px_rgba(3,43,32,0.65)]'
           }`}
           style={{
-            boxShadow: '0 25px 60px -15px rgba(3, 43, 32, 0.7), 0 0 0 1px rgba(198, 161, 91, 0.45)',
+            boxShadow: '0 25px 60px -15px rgba(3, 43, 32, 0.7)',
           }}
         >
           {/* Card Flaps Area */}
