@@ -23,7 +23,7 @@ function App() {
   useAutoScroll({
     isActive: isCardOpen,
     speed: 36, // comfortable reading speed in px/sec
-    startDelay: 1600, // wait: 900ms door anim + 600ms overlay fade + buffer
+    startDelay: 1100, // 950ms overlay unmount + 150ms settle buffer
     idleResumeDelay: 3000, // pause during user manual gestures, resume after 3s idle
   });
 

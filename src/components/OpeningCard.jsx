@@ -19,25 +19,18 @@ import IslamicLantern from './IslamicLantern';
  */
 export const OpeningCard = ({ isOpen, onOpen }) => {
   const [isOpening, setIsOpening] = useState(false);
-  // isFadingOut: true once onOpen fires — triggers full overlay opacity fade before unmount
-  const [isFadingOut, setIsFadingOut] = useState(false);
-  // isMounted: controls whether we render at all
+  // isMounted: unmount after door animation fully completes
   const [isMounted, setIsMounted] = useState(true);
 
   const handleOpenClick = () => {
     if (isOpening || isOpen) return;
     setIsOpening(true);
 
-    const prefersReducedMotion = typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const doorDuration = prefersReducedMotion ? 120 : 900;
-
-    // Step 1: Wait for door animation to complete, then reveal the invitation
-    setTimeout(() => {
-      onOpen();
-      // Step 2: Start fading out this overlay (invitation is now fading in behind it)
-      setIsFadingOut(true);
-    }, doorDuration);
+    // Call onOpen() immediately — invitation starts fading in behind the doors.
+    // The door panels have their own green backgrounds and animate via CSS (900ms).
+    // Making this overlay background transparent lets the invitation show through
+    // as the doors swing open and fade out.
+    onOpen();
   };
 
   const handleKeyDown = (e) => {
@@ -47,13 +40,13 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
     }
   };
 
-  // Step 3: Unmount after overlay fade-out completes (600ms transition)
+  // Unmount 950ms after animation starts — doors are done (900ms CSS) + small buffer
   useEffect(() => {
-    if (isFadingOut) {
-      const t = setTimeout(() => setIsMounted(false), 650);
+    if (isOpening) {
+      const t = setTimeout(() => setIsMounted(false), 950);
       return () => clearTimeout(t);
     }
-  }, [isFadingOut]);
+  }, [isOpening]);
 
   if (!isMounted) {
     return null;
@@ -61,19 +54,27 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#0B3D2E]"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-label="Islamic Wedding Invitation Envelope"
       onClick={isOpening ? undefined : handleOpenClick}
       style={{
-        opacity: isFadingOut ? 0 : 1,
-        transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)',
+        // Become fully transparent the moment opening starts so the invitation
+        // is revealed through the gap as doors swing open.
+        backgroundColor: isOpening ? 'transparent' : '#0B3D2E',
+        transition: 'background-color 200ms ease-out',
         pointerEvents: isOpening ? 'none' : 'auto',
       }}
     >
-      {/* Background Ambience: Deep Emerald Pattern with Gold Stars */}
-      <div className="absolute inset-0 bg-emerald-pattern pointer-events-none opacity-95" />
+      {/* Background pattern — hidden the moment opening starts */}
+      <div
+        className="absolute inset-0 bg-emerald-pattern pointer-events-none"
+        style={{
+          opacity: isOpening ? 0 : 0.95,
+          transition: 'opacity 200ms ease-out',
+        }}
+      />
       
       {/* Subtle Screen Edge Islamic Corners */}
       <IslamicCorner position="top-left" size={90} className="top-2 left-2 opacity-60 pointer-events-none" />
