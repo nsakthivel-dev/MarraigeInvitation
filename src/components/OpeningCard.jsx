@@ -95,13 +95,14 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
         aria-label="Click or tap to open the Islamic wedding invitation card"
       >
         
-        {/* Card Main Body */}
+        {/* Card Main Body — fades out entirely as doors open, revealing invitation beneath */}
         <div 
           className={`relative w-full rounded-2xl sm:rounded-3xl shadow-2xl transition-all duration-700 overflow-hidden transform-style-3d ${
-            isOpening ? 'scale-105' : 'scale-100 hover:shadow-[0_30px_70px_-10px_rgba(3,43,32,0.65)]'
+            isOpening ? 'scale-105 opacity-0' : 'scale-100 opacity-100 hover:shadow-[0_30px_70px_-10px_rgba(3,43,32,0.65)]'
           }`}
           style={{
-            boxShadow: '0 25px 60px -15px rgba(3, 43, 32, 0.7)',
+            boxShadow: isOpening ? 'none' : '0 25px 60px -15px rgba(3, 43, 32, 0.7)',
+            transition: 'opacity 600ms ease-out, transform 700ms ease, box-shadow 600ms ease',
           }}
         >
           {/* Card Flaps Area */}
