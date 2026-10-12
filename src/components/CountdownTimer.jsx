@@ -65,7 +65,7 @@ export const CountdownTimer = ({ targetDate = weddingConfig.weddingDateISO, clas
               The Blessed Wedding Day Is Here!
             </h4>
             <p className="text-[11px] sm:text-sm font-serif italic text-[#425F54] mt-1">
-              Alhamdulillah • Celebrating this sacred union today in Chennai
+              Alhamdulillah • Celebrating this sacred union today in {weddingConfig.venue.city || 'Pondicherry'}
             </p>
           </div>
         ) : (
@@ -95,7 +95,7 @@ export const CountdownTimer = ({ targetDate = weddingConfig.weddingDateISO, clas
 
             {/* Subtext */}
             <p className="text-[11px] sm:text-xs font-serif italic text-[#425F54] mt-3 sm:mt-4">
-              Counting down every blessed moment until we celebrate together in Chennai
+              Counting down every blessed moment until we celebrate together in {weddingConfig.venue.city || 'Pondicherry'}
             </p>
           </div>
         )}

@@ -3,10 +3,8 @@
  * CENTRALIZED ISLAMIC WEDDING INVITATION CONFIGURATION
  * ==============================================================================
  * 
- * Replace the bracketed placeholder values (e.g., "[Groom's Name]") with the
- * actual wedding details when ready. All components read directly from here.
- * 
- * Keep placeholders clean, natural, and easily editable.
+ * Centralized configuration containing all wedding details for
+ * Ajmal Ahamed R & Rifa J. All components read directly from here.
  */
 
 export const weddingConfig = {
@@ -31,36 +29,36 @@ export const weddingConfig = {
   familyGreeting: "Together With Their Families",
 
   groom: {
-    name: "[Groom's Name]",
-    qualification: "[Profession / Education]", // Optional, set to "" to hide
+    name: "Ajmal Ahamed R",
+    qualification: "", // Optional, set to "" to hide
     sonOf: "Son of",
     fatherName: "[Groom's Father's Name]",
     motherName: "[Groom's Mother's Name]",
-    familyDetails: "[Groom's Family Lineage / City]", // Optional
-    city: "Chennai, Tamil Nadu",
+    familyDetails: "", // Optional
+    city: "Pondicherry",
   },
 
   bride: {
-    name: "[Bride's Name]",
-    qualification: "[Profession / Education]", // Optional, set to "" to hide
+    name: "Rifa J",
+    qualification: "", // Optional, set to "" to hide
     daughterOf: "Daughter of",
     fatherName: "[Bride's Father's Name]",
     motherName: "[Bride's Mother's Name]",
-    familyDetails: "[Bride's Family Lineage / City]", // Optional
-    city: "Chennai, Tamil Nadu",
+    familyDetails: "", // Optional
+    city: "Pondicherry",
   },
 
   // ---------------------------------------------------------------------------
   // 4. THE NIKAH & CELEBRATION DETAILS
   // ---------------------------------------------------------------------------
-  weddingDateISO: "2026-11-29T11:00:00+05:30", // ISO 8601 format for countdown & calendar
-  displayDate: "Sunday, 29th November 2026",
-  dayOfWeek: "Sunday",
-  hijriDate: "19 Jumada al-Awwal 1448 AH",
+  weddingDateISO: "2026-12-26T17:00:00+05:30", // ISO 8601 format for countdown & calendar
+  displayDate: "Saturday, 26th December 2026",
+  dayOfWeek: "Saturday",
+  hijriDate: "17 Rajab 1448 AH",
   
   nikah: {
     title: "The Nikah Ceremony",
-    time: "11:00 AM onwards",
+    time: "5:00 PM",
     ceremonyNote: "In sha Allah, to be solemnized in the gracious presence of family and loved ones",
   },
 
@@ -69,35 +67,35 @@ export const weddingConfig = {
     {
       id: "nikah",
       title: "The Nikah Ceremony",
-      date: "Sunday, 29th November 2026",
-      time: "11:00 AM onwards",
-      description: "The sacred marriage contract solemnized with prayers and duas for a blessed union, followed by traditional wedding feast.",
+      date: "Saturday, 26th December 2026",
+      time: "5:00 PM",
+      description: "The sacred marriage contract solemnized with prayers and duas for a blessed union.",
       accent: "Sacred Covenant",
     },
     {
-      id: "walima",
-      title: "The Walima Reception",
-      date: "Sunday, 29th November 2026",
-      time: "07:00 PM onwards",
+      id: "reception",
+      title: "The Reception",
+      date: "Saturday, 26th December 2026",
+      time: "6:30 PM",
       description: "A celebratory feast to felicitate the newlyweds and share joyful moments with family and friends.",
       accent: "Celebration Feast",
     },
   ],
 
   // ---------------------------------------------------------------------------
-  // 5. CHENNAI VENUE & DIRECTIONS
+  // 5. VENUE & DIRECTIONS
   // ---------------------------------------------------------------------------
   venue: {
-    name: "The Crescent Grand Convention Centre",
-    hallName: "Royal Grand Palace Banquet Hall",
-    streetAddress: "No. 48, Mount Poonamallee Road, Guindy",
-    area: "Guindy",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    pincode: "600032",
-    landmark: "Near Kathipara Junction & Guindy Metro Station",
+    name: "Santo Lawn",
+    hallName: "",
+    streetAddress: "",
+    area: "",
+    city: "Pondicherry",
+    state: "",
+    pincode: "",
+    landmark: "",
     // Direct Google Maps directions URL (opens in Maps app or browser)
-    googleMapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Guindy+Chennai+Tamil+Nadu+India",
+    googleMapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Santo+Lawn+Pondicherry",
   },
 
   // ---------------------------------------------------------------------------
@@ -113,8 +111,8 @@ export const weddingConfig = {
 
   familySignature: {
     complimentsText: "With Warm Compliments & Duas From:",
-    families: "[The Groom's Family] & [The Bride's Family]",
-    subtext: "Relatives, Friends, and Well-Wishers in Chennai",
+    families: "The Families of Ajmal Ahamed R & Rifa J",
+    subtext: "Relatives, Friends, and Well-Wishers in Pondicherry",
   },
 
   // ---------------------------------------------------------------------------
@@ -135,14 +133,14 @@ export const weddingConfig = {
     getWhatsAppMessage: (url) => {
       return `🌙 *Bismillah ir-Rahman ir-Rahim* 🌙\n\n` +
         `With the blessings of Allah, we joyfully invite you to join us in celebrating the Nikah of:\n\n` +
-        `🤵 *[Groom's Name]*\n` +
+        `🤵 *Ajmal Ahamed R*\n` +
         `& \n` +
-        `👰 *[Bride's Name]*\n\n` +
+        `👰 *Rifa J*\n\n` +
         `Together With Their Families\n\n` +
-        `📅 *Date:* Sunday, 29th November 2026\n` +
-        `⏰ *Nikah Ceremony:* 11:00 AM onwards\n` +
-        `📍 *Venue:* The Crescent Grand Convention Centre, Guindy, Chennai\n` +
-        `📌 *Address:* No. 48, Mount Poonamallee Road, Guindy, Chennai – 600032\n\n` +
+        `📅 *Date:* Saturday, 26th December 2026\n` +
+        `⏰ *Nikah Ceremony:* 5:00 PM\n` +
+        `⏰ *Reception:* 6:30 PM\n` +
+        `📍 *Venue:* Santo Lawn, Pondicherry\n\n` +
         `May Allah bless this union with love and barakah. Please open our digital wedding invitation card here:\n` +
         `${url}\n\n` +
         `Your presence and sincere duas are deeply appreciated! 🤲✨`;

@@ -20,9 +20,9 @@ export const WeddingDetails = () => {
         `Sacred Nikah Ceremony of ${groom.name} & ${bride.name}.\n` +
         `Time: ${nikah.time}\n` +
         `Venue: ${venue.name}, ${venue.city}\n` +
-        `Address: ${venue.streetAddress}`
+        (venue.streetAddress ? `Address: ${venue.streetAddress}` : '')
       );
-      const location = encodeURIComponent(`${venue.name}, ${venue.streetAddress}, ${venue.city}`);
+      const location = encodeURIComponent([venue.name, venue.streetAddress, venue.city].filter(Boolean).join(', '));
       
       const startDate = new Date(weddingConfig.weddingDateISO);
       const endDate = new Date(startDate.getTime() + 4 * 60 * 60 * 1000);
@@ -101,7 +101,7 @@ export const WeddingDetails = () => {
           <div className="flex items-center space-x-2 text-[#425F54]">
             <MapPin className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#C6A15B]" />
             <span className="text-xs sm:text-sm font-serif font-semibold tracking-wide text-[#17352C] truncate max-w-[260px] sm:max-w-none">
-              {venue.name}
+              {venue.name}{venue.city && !venue.name.includes(venue.city) ? `, ${venue.city}` : ''}
             </span>
           </div>
         </div>

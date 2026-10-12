@@ -58,9 +58,13 @@ export const VenueSection = () => {
 
         {/* Address Lines */}
         <div className="max-w-md mx-auto space-y-1 text-[#17352C] font-serif text-sm sm:text-base md:text-lg mb-5 sm:mb-6">
-          <p>{venue.streetAddress}</p>
-          <p>{venue.area}, {venue.city}</p>
-          <p>{venue.state} – {venue.pincode}</p>
+          {venue.streetAddress && <p>{venue.streetAddress}</p>}
+          {(venue.area || venue.city) && (
+            <p>{[venue.area, venue.city].filter(Boolean).join(', ')}</p>
+          )}
+          {(venue.state || venue.pincode) && (
+            <p>{[venue.state, venue.pincode].filter(Boolean).join(' – ')}</p>
+          )}
           {venue.landmark && (
             <p className="text-xs sm:text-sm text-[#425F54] font-sans font-medium mt-1.5 sm:mt-2 flex items-center justify-center space-x-1.5">
               <MapPin className="w-3.5 h-3.5 text-[#C6A15B]" />
