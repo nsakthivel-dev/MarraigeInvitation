@@ -47,14 +47,15 @@ function App() {
       
       {/* 1. PRIORITY OPENING SCREEN: Fullscreen 3D Unfolding Islamic Invitation Card Cover */}
       <OpeningCard 
+        key={isCardOpen ? 'open' : 'closed'}
         isOpen={isCardOpen} 
         onOpen={handleOpenInvitation} 
       />
 
       {/* 2. REVEALED INVITATION CONTENT: Unfolded Single-Page Islamic Wedding Invitation */}
       <div 
-        className={`invitation-reveal transition-all duration-700 ${
-          isCardOpen ? 'is-visible' : 'opacity-0 pointer-events-none max-h-screen overflow-hidden'
+        className={`invitation-reveal relative z-10 transition-all duration-700 ${
+          isCardOpen ? 'is-visible opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none max-h-screen overflow-hidden'
         }`}
       >
         {/* Top Navigation Bar with Re-close Cover & Jump links */}
