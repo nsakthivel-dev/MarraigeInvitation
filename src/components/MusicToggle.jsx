@@ -164,31 +164,31 @@ export const MusicToggle = ({ className = '' }) => {
         onClick={toggleMusic}
         type="button"
         aria-label={isPlaying ? "Mute ambient background sound" : "Play ambient background sound"}
-        className={`group relative flex items-center space-x-1.5 sm:space-x-2 px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 rounded-full shadow-lg border transition-all duration-300 backdrop-blur-md focus:outline-hidden focus:ring-2 focus:ring-[#C6A15B] cursor-pointer min-h-[38px] sm:min-h-[44px] ${
+        className={`group relative flex items-center space-x-1.5 sm:space-x-2 px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 rounded-full shadow-lg border transition-all duration-300 backdrop-blur-md focus:outline-hidden focus:ring-2 focus:ring-[#C6A46A] cursor-pointer min-h-[38px] sm:min-h-[44px] ${
           isPlaying
-            ? 'bg-[#064E3B] border-[#C6A15B] text-[#FAF7EF] shadow-emerald-950/40'
-            : 'bg-[#FFFDF9]/95 border-[#C6A15B]/50 text-[#064E3B] hover:bg-[#FFFDF9] hover:border-[#C6A15B]'
+            ? 'bg-[#5C405C] border-[#C6A46A] text-[#FFFDF8] shadow-purple-950/40'
+            : 'bg-[#F8EEF5]/95 border-[#C6A46A]/50 text-[#5C405C] hover:bg-[#F8EEF5] hover:border-[#C6A46A]'
         }`}
       >
         {isPlaying ? (
           <>
-            <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E5D3A1] animate-pulse shrink-0" />
+            <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F4C6D5] animate-pulse shrink-0" />
             <div className="flex items-center space-x-0.5 h-3">
-              <span className="w-0.5 bg-[#E5D3A1] h-2 animate-[bounce_1s_infinite_100ms]" />
-              <span className="w-0.5 bg-[#E5D3A1] h-3 animate-[bounce_1s_infinite_300ms]" />
-              <span className="w-0.5 bg-[#E5D3A1] h-1.5 animate-[bounce_1s_infinite_200ms]" />
+              <span className="w-0.5 bg-[#F4C6D5] h-2 animate-[bounce_1s_infinite_100ms]" />
+              <span className="w-0.5 bg-[#F4C6D5] h-3 animate-[bounce_1s_infinite_300ms]" />
+              <span className="w-0.5 bg-[#F4C6D5] h-1.5 animate-[bounce_1s_infinite_200ms]" />
             </div>
-            <span className="text-xs font-serif tracking-wider hidden sm:inline text-[#E5D3A1]">
+            <span className="text-xs font-serif tracking-wider hidden sm:inline text-[#EAE2F6]">
               {weddingConfig.music?.trackName || "Ambient Harmony"}
             </span>
           </>
         ) : (
           <>
-            <Music className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C6A15B] group-hover:scale-110 transition-transform shrink-0" />
-            <span className="text-xs font-serif tracking-wider text-[#17352C] hidden sm:inline">
+            <Music className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C6A46A] group-hover:scale-110 transition-transform shrink-0" />
+            <span className="text-xs font-serif tracking-wider text-[#51474D] hidden sm:inline">
               Play Ambient Sound
             </span>
-            <span className="text-[11px] font-serif tracking-wider text-[#17352C] sm:hidden">
+            <span className="text-[11px] font-serif tracking-wider text-[#51474D] sm:hidden">
               Music
             </span>
           </>

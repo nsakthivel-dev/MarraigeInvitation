@@ -8,6 +8,7 @@ import CountdownTimer from './CountdownTimer';
 /**
  * Section C: The Nikah Ceremony & Celebrations
  * All timings, dates, and event programs read from centralized config.
+ * Styled in the Rose Pink, Lavender & Champagne Gold floral aesthetic.
  */
 export const WeddingDetails = () => {
   const { displayDate, dayOfWeek, hijriDate, nikah, ceremonies, venue, groom, bride } = weddingConfig;
@@ -44,63 +45,63 @@ export const WeddingDetails = () => {
     >
       {/* Section Header */}
       <div className="text-center mb-8 sm:mb-12">
-        <span className="text-xs sm:text-sm uppercase tracking-[0.25em] text-[#9A7730] font-semibold font-sans">
+        <span className="text-xs sm:text-sm uppercase tracking-[0.25em] text-[#C6A46A] font-semibold font-sans">
           Auspicious Occasion
         </span>
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#064E3B] mt-1">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#5C405C] mt-1">
           {nikah.title}
         </h3>
-        <p className="text-xs sm:text-sm font-serif italic text-[#425F54] mt-2">
+        <p className="text-xs sm:text-sm font-serif italic text-[#51474D] mt-2">
           {nikah.ceremonyNote}
         </p>
       </div>
 
       {/* Main Nikah Ceremony Banner Card */}
-      <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 border border-[#C6A15B]/50 shadow-xl islamic-gold-frame mb-6 sm:mb-10 text-center">
+      <div className="relative bg-[#F8EEF5] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 border border-[#C6A46A]/50 shadow-xl islamic-gold-frame mb-6 sm:mb-10 text-center">
         <IslamicCorner position="top-left" size={60} className="top-1 left-1 opacity-75" />
         <IslamicCorner position="top-right" size={60} className="top-1 right-1 opacity-75" />
         <IslamicCorner position="bottom-left" size={60} className="bottom-1 left-1 opacity-75" />
         <IslamicCorner position="bottom-right" size={60} className="bottom-1 right-1 opacity-75" />
 
         {/* Crescent Badge */}
-        <div className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#E8F3EE] border border-[#064E3B]/25 mb-3 sm:mb-4">
-          <Moon className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#064E3B]" />
-          <span className="text-[11px] sm:text-sm font-serif font-bold tracking-wider text-[#064E3B] uppercase">
+        <div className="inline-flex items-center space-x-1.5 sm:space-x-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#EAE2F6] border border-[#D99AAF]/40 mb-3 sm:mb-4">
+          <Moon className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#5C405C]" />
+          <span className="text-[11px] sm:text-sm font-serif font-bold tracking-wider text-[#5C405C] uppercase">
             {nikah.title}
           </span>
         </div>
 
         {/* Date Display */}
-        <h4 className="text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#064E3B] tracking-tight">
+        <h4 className="text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#5C405C] tracking-tight">
           {displayDate}
         </h4>
         
         {dayOfWeek && (
-          <p className="text-[11px] sm:text-xs uppercase tracking-widest font-sans font-semibold text-[#9A7730] mt-1">
+          <p className="text-[11px] sm:text-xs uppercase tracking-widest font-sans font-semibold text-[#C6A46A] mt-1">
             {dayOfWeek}
           </p>
         )}
         
         {hijriDate && (
-          <p className="text-xs sm:text-sm font-serif text-[#425F54] font-medium mt-1">
+          <p className="text-xs sm:text-sm font-serif text-[#51474D] font-medium mt-1">
             Islamic Calendar: {hijriDate}
           </p>
         )}
 
         {/* Nikah Ceremony Time & Venue Highlighting */}
-        <div className="my-4 sm:my-6 inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 bg-[#FAF7EF]/90 px-3.5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl border border-[#C6A15B]/35 shadow-xs w-full sm:w-auto">
-          <div className="flex items-center space-x-2 text-[#17352C]">
-            <Clock className="w-4 sm:w-5 h-4 sm:h-5 text-[#C6A15B]" />
-            <span className="text-base sm:text-xl font-serif font-bold text-[#064E3B]">
+        <div className="my-4 sm:my-6 inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 bg-[#EAE2F6]/35 px-3.5 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl border border-[#C6A46A]/35 shadow-xs w-full sm:w-auto">
+          <div className="flex items-center space-x-2 text-[#51474D]">
+            <Clock className="w-4 sm:w-5 h-4 sm:h-5 text-[#C6A46A]" />
+            <span className="text-base sm:text-xl font-serif font-bold text-[#5C405C]">
               {nikah.time}
             </span>
           </div>
 
-          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-[#C6A15B]" />
+          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-[#C6A46A]" />
 
-          <div className="flex items-center space-x-2 text-[#425F54]">
-            <MapPin className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#C6A15B]" />
-            <span className="text-xs sm:text-sm font-serif font-semibold tracking-wide text-[#17352C] truncate max-w-[260px] sm:max-w-none">
+          <div className="flex items-center space-x-2 text-[#51474D]">
+            <MapPin className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#C6A46A]" />
+            <span className="text-xs sm:text-sm font-serif font-semibold tracking-wide text-[#51474D] truncate max-w-[260px] sm:max-w-none">
               {venue.name}{venue.city && !venue.name.includes(venue.city) ? `, ${venue.city}` : ''}
             </span>
           </div>
@@ -112,9 +113,9 @@ export const WeddingDetails = () => {
             href={getGoogleCalendarUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] space-x-2 px-5 py-2.5 rounded-full bg-[#FFFDF9] hover:bg-[#FAF7EF] text-[#064E3B] text-xs sm:text-sm font-serif font-bold border border-[#C6A15B]/70 shadow-xs hover:shadow-md transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] space-x-2 px-5 py-2.5 rounded-full bg-[#F8EEF5] hover:bg-[#EAE2F6]/50 text-[#5C405C] text-xs sm:text-sm font-serif font-bold border border-[#C6A46A]/70 shadow-xs hover:shadow-md transition-all duration-200"
           >
-            <Calendar className="w-4 h-4 text-[#C6A15B]" />
+            <Calendar className="w-4 h-4 text-[#C6A46A]" />
             <span>Add Nikah to Google Calendar</span>
           </a>
         </div>
@@ -126,7 +127,7 @@ export const WeddingDetails = () => {
       {/* Additional Celebrations Timeline (Walima, Reception) */}
       {ceremonies && ceremonies.length > 0 && (
         <div className="space-y-4 sm:space-y-6">
-          <h4 className="text-base sm:text-xl font-serif font-bold text-center text-[#064E3B] tracking-wide mb-4 sm:mb-6">
+          <h4 className="text-base sm:text-xl font-serif font-bold text-center text-[#5C405C] tracking-wide mb-4 sm:mb-6">
             Program of Wedding Celebrations
           </h4>
 
@@ -134,28 +135,28 @@ export const WeddingDetails = () => {
             {ceremonies.map((ceremony) => (
               <div 
                 key={ceremony.id}
-                className="bg-[#FFFDF9] rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#C6A15B]/35 shadow-md flex flex-col justify-between hover:border-[#C6A15B] transition-colors"
+                className="bg-[#F8EEF5] rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-[#C6A46A]/35 shadow-md flex flex-col justify-between hover:border-[#C6A46A] transition-colors"
               >
                 <div>
-                  <span className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-[#9A7730] bg-[#FAF7EF] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-sm border border-[#C6A15B]/30">
+                  <span className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-[#5C405C] bg-[#EAE2F6] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-sm border border-[#D99AAF]/35">
                     {ceremony.accent}
                   </span>
 
-                  <h5 className="text-base sm:text-lg font-serif font-bold text-[#064E3B] mt-2.5 sm:mt-3 mb-1">
+                  <h5 className="text-base sm:text-lg font-serif font-bold text-[#5C405C] mt-2.5 sm:mt-3 mb-1">
                     {ceremony.title}
                   </h5>
 
-                  <p className="text-xs font-sans font-semibold text-[#9A7730] mb-1.5 sm:mb-2 flex items-center space-x-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#C6A15B]" />
+                  <p className="text-xs font-sans font-semibold text-[#C6A46A] mb-1.5 sm:mb-2 flex items-center space-x-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#C6A46A]" />
                     <span>{ceremony.date}</span>
                   </p>
 
-                  <p className="text-xs font-sans text-[#17352C] font-medium flex items-center space-x-1.5 mb-2.5 sm:mb-3">
-                    <Clock className="w-3.5 h-3.5 text-[#C6A15B]" />
+                  <p className="text-xs font-sans text-[#51474D] font-medium flex items-center space-x-1.5 mb-2.5 sm:mb-3">
+                    <Clock className="w-3.5 h-3.5 text-[#C6A46A]" />
                     <span>{ceremony.time}</span>
                   </p>
 
-                  <p className="text-xs sm:text-sm font-serif text-[#425F54] leading-relaxed">
+                  <p className="text-xs sm:text-sm font-serif text-[#51474D] leading-relaxed">
                     {ceremony.description}
                   </p>
                 </div>

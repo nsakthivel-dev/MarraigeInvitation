@@ -9,6 +9,7 @@ import weddingConfig from '../data/invitation';
  * - Direct WhatsApp share button with pre-filled Islamic wedding invitation text
  * - One-tap link copy with Clipboard API & robust fallback
  * - Toast notification for successful copy feedback
+ * - Styled in the Rose Pink, Lavender & Champagne Gold floral aesthetic
  */
 export const ShareSection = () => {
   const [copied, setCopied] = useState(false);
@@ -71,16 +72,16 @@ export const ShareSection = () => {
       aria-label="Share Wedding Invitation"
       className="relative px-1 sm:px-4 py-6 sm:py-12 max-w-xl mx-auto text-center"
     >
-      <div className="bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#C6A15B]/35 shadow-md">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-[#E8F3EE] border border-[#064E3B]/30 flex items-center justify-center mb-2.5 sm:mb-3">
-          <Share2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#064E3B]" />
+      <div className="bg-[#F8EEF5] rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#C6A46A]/35 shadow-md">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-[#EAE2F6] border border-[#D99AAF]/40 flex items-center justify-center mb-2.5 sm:mb-3">
+          <Share2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#5C405C]" />
         </div>
 
-        <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#064E3B] mb-1.5 sm:mb-2">
+        <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#5C405C] mb-1.5 sm:mb-2">
           Share This Invitation
         </h4>
 
-        <p className="text-xs sm:text-sm font-sans text-[#425F54] mb-5 sm:mb-6 max-w-md mx-auto">
+        <p className="text-xs sm:text-sm font-sans text-[#51474D] mb-5 sm:mb-6 max-w-md mx-auto">
           Share our wedding card with your family, relatives, and friends on WhatsApp or copy the link to share.
         </p>
 
@@ -102,16 +103,16 @@ export const ShareSection = () => {
             type="button"
             onClick={handleCopyLink}
             aria-label="Copy invitation link to clipboard"
-            className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] space-x-2.5 px-5 sm:px-6 py-3 rounded-full bg-[#FFFDF9] hover:bg-[#FAF7EF] active:scale-95 text-[#064E3B] border border-[#C6A15B] font-sans font-semibold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] space-x-2.5 px-5 sm:px-6 py-3 rounded-full bg-[#F8EEF5] hover:bg-[#EAE2F6]/50 active:scale-95 text-[#5C405C] border border-[#C6A46A] font-sans font-semibold text-xs sm:text-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer"
           >
             {copied ? (
               <>
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span className="text-emerald-700">Link Copied!</span>
+                <Check className="w-4 h-4 text-[#5C405C]" />
+                <span className="text-[#5C405C]">Link Copied!</span>
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-[#C6A15B]" />
+                <Copy className="w-4 h-4 text-[#C6A46A]" />
                 <span>Copy Invitation Link</span>
               </>
             )}
@@ -123,9 +124,9 @@ export const ShareSection = () => {
           <div 
             role="status" 
             aria-live="polite"
-            className="mt-3 sm:mt-4 inline-flex items-center justify-center space-x-2 bg-[#064E3B] text-[#FAF7EF] px-3.5 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-sans shadow-lg max-w-full"
+            className="mt-3 sm:mt-4 inline-flex items-center justify-center space-x-2 bg-[#5C405C] text-[#FFFDF8] px-3.5 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-sans shadow-lg max-w-full"
           >
-            <Check className="w-3.5 h-3.5 text-[#E5D3A1]" />
+            <Check className="w-3.5 h-3.5 text-[#F4C6D5]" />
             <span>{toastMessage}</span>
           </div>
         )}

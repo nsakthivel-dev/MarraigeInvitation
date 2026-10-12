@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-emerald-deep: #064E3B;
-  --color-forest: #0B3D2E;
-  --color-emerald-dark: #032B20;
-  --color-emerald-light: #0D5C46;
-  --color-emerald-soft: #E8F3EE;
+  --color-plum-deep: #5C405C;
+  --color-plum-dark: #462A46;
+  --color-dusty-rose: #D99AAF;
+  --color-blush-pink: #F4C6D5;
+  --color-lavender: #D8C9EF;
+  --color-lilac-soft: #EAE2F6;
   
-  --color-gold-antique: #C6A15B;
-  --color-gold-champagne: #E5D3A1;
+  --color-gold-champagne: #C6A46A;
+  --color-gold-antique: #C6A46A;
   --color-gold-dark: #9A7730;
   --color-gold-shimmer: #F5E8C7;
   
-  --color-ivory: #FAF7EF;
-  --color-ivory-warm: #F4EFE2;
-  --color-cream: #FFFDF9;
+  --color-ivory: #F8EEF5;
+  --color-ivory-warm: #F8EEF5;
+  --color-cream: #F8EEF5;
   
-  --color-text-dark: #17352C;
-  --color-text-muted: #425F54;
-  --color-text-gold: #A47E35;
+  --color-text-dark: #51474D;
+  --color-text-muted: #51474D;
+  --color-text-plum: #5C405C;
+  --color-text-gold: #C6A46A;
 
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-arabic: "Amiri", "Noto Naskh Arabic", serif;
@@ -26,77 +28,81 @@
 }
 
 :root {
-  --color-emerald-deep: #064E3B;
-  --color-forest: #0B3D2E;
-  --color-gold-antique: #C6A15B;
-  --color-gold-champagne: #E5D3A1;
-  --color-ivory: #FAF7EF;
-  --color-text-dark: #17352C;
+  --color-plum-deep: #5C405C;
+  --color-plum-dark: #462A46;
+  --color-dusty-rose: #D99AAF;
+  --color-blush-pink: #F4C6D5;
+  --color-lavender: #D8C9EF;
+  --color-lilac-soft: #EAE2F6;
+  --color-gold-champagne: #C6A46A;
+  --color-ivory: #F8EEF5;
+  --color-text-dark: #51474D;
 }
 
 /* Custom Base & Smooth Scrolling */
 html {
   scroll-behavior: smooth;
   font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #FAF7EF;
-  color: #17352C;
+  background-color: #F8EEF5;
+  color: #51474D;
 }
 
 .font-arabic {
   font-family: "Amiri", "Noto Naskh Arabic", serif;
 }
 
-/* Islamic Geometric Star Pattern for Warm Ivory Stationery Background */
+/* Delicate Botanical & Geometric Pattern for Blush Ivory Stationery Background */
 .bg-islamic-stationery {
-  background-color: #FAF7EF;
+  background-color: #F8EEF5;
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(198, 161, 91, 0.06) 1px, transparent 1px),
-    linear-gradient(to right, rgba(198, 161, 91, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(198, 161, 91, 0.03) 1px, transparent 1px);
+    radial-gradient(circle at 50% 50%, rgba(198, 164, 106, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(216, 201, 239, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 198, 213, 0.06) 1px, transparent 1px);
   background-size: 24px 24px, 48px 48px, 48px 48px;
 }
 
-/* Deep Emerald Islamic Pattern for Cover & Rich Accents */
+/* Deep Plum & Rose Floral Damask Pattern for Cover & Rich Accents */
 .bg-emerald-pattern {
-  background-color: #064E3B;
+  background-color: #5C405C;
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(229, 211, 161, 0.07) 1px, transparent 1px),
-    linear-gradient(135deg, rgba(11, 61, 46, 0.95) 0%, rgba(6, 78, 59, 1) 50%, rgba(3, 43, 32, 0.98) 100%);
-  background-size: 28px 28px, 100% 100%;
+    radial-gradient(circle at 50% 50%, rgba(216, 201, 239, 0.09) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 0% 0%, rgba(244, 198, 213, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(70, 42, 70, 0.98) 0%, rgba(92, 64, 92, 1) 50%, rgba(60, 34, 60, 0.98) 100%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
 }
 
-/* Refined Antique Gold Foil Text */
+/* Refined Champagne Gold Foil Text */
 .gold-foil-text {
-  background: linear-gradient(135deg, #9A7730 0%, #C6A15B 35%, #F5E8C7 50%, #C6A15B 65%, #8A6728 100%);
+  background: linear-gradient(135deg, #9A7730 0%, #C6A46A 35%, #F5E8C7 50%, #C6A46A 65%, #9A7730 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-foil-bg {
-  background: linear-gradient(135deg, #9A7730 0%, #C6A15B 25%, #E5D3A1 50%, #C6A15B 75%, #8A6728 100%);
+  background: linear-gradient(135deg, #9A7730 0%, #C6A46A 25%, #F5E8C7 50%, #C6A46A 75%, #9A7730 100%);
 }
 
 .emerald-gradient-bg {
-  background: linear-gradient(145deg, #0B3D2E 0%, #064E3B 55%, #032B20 100%);
+  background: linear-gradient(145deg, #462A46 0%, #5C405C 55%, #3B203B 100%);
 }
 
-/* Luxury Islamic Frame with Gold Inset */
+/* Luxury Floral Islamic Frame with Champagne Gold Inset */
 .islamic-gold-frame {
   position: relative;
-  border: 1px solid rgba(198, 161, 91, 0.45);
+  border: 1px solid rgba(198, 164, 106, 0.45);
   box-shadow: 
-    0 0 0 4px #FFFDF9,
-    0 0 0 5.5px rgba(198, 161, 91, 0.65),
-    0 15px 35px -10px rgba(6, 78, 59, 0.18);
+    0 0 0 4px #F8EEF5,
+    0 0 0 5.5px rgba(198, 164, 106, 0.65),
+    0 15px 35px -10px rgba(92, 64, 92, 0.12);
 }
 
 .islamic-cover-frame {
   position: relative;
   border: 1.5px solid rgba(229, 211, 161, 0.6);
   box-shadow: 
-    0 0 0 4px #064E3B,
-    0 0 0 6px rgba(198, 161, 91, 0.75),
-    0 25px 50px -12px rgba(3, 43, 32, 0.5);
+    0 0 0 4px #5C405C,
+    0 0 0 6px rgba(198, 164, 106, 0.75),
+    0 25px 50px -12px rgba(60, 34, 60, 0.5);
 }
 
 /* Traditional Islamic Arch Clip Shape (Pointed Moorish / Horseshoe Arch) */
@@ -235,9 +241,9 @@ html {
 
   .islamic-gold-frame {
     box-shadow: 
-      0 0 0 2.5px #FFFDF9,
-      0 0 0 4px rgba(198, 161, 91, 0.6),
-      0 10px 25px -8px rgba(6, 78, 59, 0.15);
+      0 0 0 2.5px #F8EEF5,
+      0 0 0 4px rgba(198, 164, 106, 0.6),
+      0 10px 25px -8px rgba(92, 64, 92, 0.12);
   }
 
   /* Prevent door edge overshoot outside small screen viewports */
@@ -255,12 +261,12 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF7EF;
+  background: #F8EEF5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C6A15B;
+  background: #D99AAF;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9A7730;
+  background: #C6A46A;
 }

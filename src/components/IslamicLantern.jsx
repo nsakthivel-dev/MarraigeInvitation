@@ -36,8 +36,8 @@ export const IslamicLantern = ({ height = 110, className = '' }) => {
           <radialGradient id="lanternAmberGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#FFF4D0" stopOpacity="0.95" />
             <stop offset="40%" stopColor="#F5D061" stopOpacity="0.75" />
-            <stop offset="80%" stopColor="#C6A15B" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#064E3B" stopOpacity="0" />
+            <stop offset="80%" stopColor="#C6A46A" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#5C405C" stopOpacity="0" />
           </radialGradient>
         </defs>
 
