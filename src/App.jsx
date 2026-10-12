@@ -12,21 +12,34 @@ import ShareSection from './components/ShareSection';
 import MusicToggle from './components/MusicToggle';
 import IslamicCorner from './components/IslamicCorner';
 import ThankYouClosingSection from './components/ThankYouClosingSection';
+import useAutoScroll from './hooks/useAutoScroll';
 
 function App() {
   const [isCardOpen, setIsCardOpen] = useState(() => {
     return typeof window !== 'undefined' && window.location.search.includes('open=true');
   });
 
+  // Cinematic automatic vertical scrolling once the invitation opens
+  useAutoScroll({
+    isActive: isCardOpen,
+    speed: 36, // comfortable reading speed in px/sec
+    startDelay: 900, // wait for opening transition to settle
+    idleResumeDelay: 3000, // pause during user manual gestures, resume after 3s idle
+  });
+
   const handleOpenInvitation = () => {
     setIsCardOpen(true);
-    // Smoothly scroll to top of revealed invitation
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Reset scroll to top immediately when opening
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   };
 
   const handleReplayCover = () => {
     setIsCardOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
   };
 
   return (
