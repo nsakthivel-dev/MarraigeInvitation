@@ -23,7 +23,7 @@ function App() {
   useAutoScroll({
     isActive: isCardOpen,
     speed: 36, // comfortable reading speed in px/sec
-    startDelay: 900, // wait for opening transition to settle
+    startDelay: 1600, // wait: 900ms door anim + 600ms overlay fade + buffer
     idleResumeDelay: 3000, // pause during user manual gestures, resume after 3s idle
   });
 
@@ -47,7 +47,6 @@ function App() {
       
       {/* 1. PRIORITY OPENING SCREEN: Fullscreen 3D Unfolding Islamic Invitation Card Cover */}
       <OpeningCard 
-        key={isCardOpen ? 'open' : 'closed'}
         isOpen={isCardOpen} 
         onOpen={handleOpenInvitation} 
       />

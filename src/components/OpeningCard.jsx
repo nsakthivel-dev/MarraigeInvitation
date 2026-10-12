@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import weddingConfig from '../data/invitation';
 import IslamicCorner from './IslamicCorner';
 import IslamicLantern from './IslamicLantern';
@@ -19,18 +19,25 @@ import IslamicLantern from './IslamicLantern';
  */
 export const OpeningCard = ({ isOpen, onOpen }) => {
   const [isOpening, setIsOpening] = useState(false);
+  // isFadingOut: true once onOpen fires — triggers full overlay opacity fade before unmount
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  // isMounted: controls whether we render at all
+  const [isMounted, setIsMounted] = useState(true);
 
   const handleOpenClick = () => {
     if (isOpening || isOpen) return;
     setIsOpening(true);
 
-    const prefersReducedMotion = typeof window !== 'undefined' && 
+    const prefersReducedMotion = typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const duration = prefersReducedMotion ? 120 : 850;
+    const doorDuration = prefersReducedMotion ? 120 : 900;
 
+    // Step 1: Wait for door animation to complete, then reveal the invitation
     setTimeout(() => {
       onOpen();
-    }, duration);
+      // Step 2: Start fading out this overlay (invitation is now fading in behind it)
+      setIsFadingOut(true);
+    }, doorDuration);
   };
 
   const handleKeyDown = (e) => {
@@ -40,9 +47,15 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
     }
   };
 
-  // The moment the opening animation completes and onOpen() is called,
-  // dismiss the overlay immediately. No timer delay, no lingering semi-transparent card.
-  if (isOpen) {
+  // Step 3: Unmount after overlay fade-out completes (600ms transition)
+  useEffect(() => {
+    if (isFadingOut) {
+      const t = setTimeout(() => setIsMounted(false), 650);
+      return () => clearTimeout(t);
+    }
+  }, [isFadingOut]);
+
+  if (!isMounted) {
     return null;
   }
 
@@ -52,7 +65,12 @@ export const OpeningCard = ({ isOpen, onOpen }) => {
       role="dialog"
       aria-modal="true"
       aria-label="Islamic Wedding Invitation Envelope"
-      onClick={handleOpenClick}
+      onClick={isOpening ? undefined : handleOpenClick}
+      style={{
+        opacity: isFadingOut ? 0 : 1,
+        transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)',
+        pointerEvents: isOpening ? 'none' : 'auto',
+      }}
     >
       {/* Background Ambience: Deep Emerald Pattern with Gold Stars */}
       <div className="absolute inset-0 bg-emerald-pattern pointer-events-none opacity-95" />

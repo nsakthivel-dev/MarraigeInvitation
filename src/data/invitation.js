@@ -21,12 +21,12 @@ export const weddingConfig = {
   // 2. INVITATION MESSAGE
   // ---------------------------------------------------------------------------
   invitationMessage:
-    "With the blessings of Allah, we joyfully invite you to join us in celebrating the Nikah of our beloved children. Your presence, prayers, and blessings will make this special occasion even more meaningful to our families.",
+    "With the blessings of Allah, we, Ajmal Ahamed R & Rifa J, joyfully invite you to join us as we begin our beautiful journey of togetherness through Nikah. Your presence, prayers, and heartfelt blessings would make our special day even more memorable as we celebrate the beginning of our forever.",
 
   // ---------------------------------------------------------------------------
   // 3. THE COUPLE & FAMILIES
   // ---------------------------------------------------------------------------
-  familyGreeting: "Together With Their Families",
+  familyGreeting: "Join Us in Celebrating",
 
   groom: {
     name: "Ajmal Ahamed R",
@@ -131,19 +131,12 @@ export const weddingConfig = {
     publicWebsiteUrl: "", // If empty, automatically uses window.location.href
 
     getWhatsAppMessage: (url) => {
-      return `🌙 *Bismillah ir-Rahman ir-Rahim* 🌙\n\n` +
-        `With the blessings of Allah, we joyfully invite you to join us in celebrating the Nikah of:\n\n` +
-        `🤵 *Ajmal Ahamed R*\n` +
-        `& \n` +
-        `👰 *Rifa J*\n\n` +
-        `Together With Their Families\n\n` +
-        `📅 *Date:* Saturday, 26th December 2026\n` +
-        `⏰ *Nikah Ceremony:* 5:00 PM\n` +
-        `⏰ *Reception:* 6:30 PM\n` +
-        `📍 *Venue:* Santo Lawn, Pondicherry\n\n` +
-        `May Allah bless this union with love and barakah. Please open our digital wedding invitation card here:\n` +
-        `${url}\n\n` +
-        `Your presence and sincere duas are deeply appreciated! 🤲✨`;
+      return `With hearts full of happiness 💕,\n\n` +
+        `We invite you to join us as we begin a beautiful new chapter of our lives. Your presence, prayers, and blessings would make our special day even more memorable. ✨\n\n` +
+        `With love ❤️,\n` +
+        `Ajmal Ahamed R & Rifa J\n\n` +
+        `💌 Our Wedding Invitation:\n` +
+        `https://wedding--invitation.neocities.org/wedding%20invitation/`;
     },
   },
 };

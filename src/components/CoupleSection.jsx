@@ -6,8 +6,8 @@ import WeddingScarf from './WeddingScarf';
 
 /**
  * Section B: The Couple (Visual Centerpiece)
- * Features Groom and Bride with respectful Islamic family details,
- * framed in double antique-gold Islamic ornamental cards.
+ * Features Groom and Bride in framed double antique-gold Islamic ornamental cards.
+ * Parents' information removed per design update.
  */
 export const CoupleSection = () => {
   const { groom, bride, familyGreeting } = weddingConfig;
@@ -24,7 +24,7 @@ export const CoupleSection = () => {
           {familyGreeting}
         </span>
         <h3 className="text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#064E3B] mt-1">
-          The Bridegroom & The Bride
+          The Bridegroom &amp; The Bride
         </h3>
       </div>
 
@@ -34,21 +34,19 @@ export const CoupleSection = () => {
       <div className="hidden md:grid md:grid-cols-2 md:gap-x-20 lg:gap-x-28 items-stretch relative">
         
         {/* GROOM'S CARD */}
-        <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-between text-center islamic-gold-frame">
+        <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-center text-center islamic-gold-frame">
           <IslamicCorner position="top-left" size={50} className="top-1 left-1 opacity-75" />
           <IslamicCorner position="bottom-right" size={50} className="bottom-1 right-1 opacity-75" />
 
-          {/* Groom Islamic Medallion (Crescent & 8-pointed star emblem) */}
+          {/* Groom Islamic Medallion */}
           <div className="flex flex-col items-center relative z-20">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFFDF9] to-[#FAF7EF] border border-[#C6A15B] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
               <svg viewBox="0 0 36 36" className="w-7 h-7 sm:w-8 sm:h-8 text-[#064E3B]" fill="none">
                 <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
-                {/* Crescent Motif */}
                 <path
                   d="M 21 8 C 14 8 9 13 9 20 C 9 25 12.5 29 17 29.8 C 13.5 28 11.5 24.5 11.5 20 C 11.5 14.5 15.5 10.5 21 8 Z"
                   fill="#064E3B"
                 />
-                {/* 8-Pointed Star */}
                 <g transform="translate(21, 17) scale(0.65)">
                   <rect x="-4" y="-4" width="8" height="8" fill="#C6A15B" rx="0.5" />
                   <rect x="-4" y="-4" width="8" height="8" fill="#C6A15B" rx="0.5" transform="rotate(45)" />
@@ -60,8 +58,8 @@ export const CoupleSection = () => {
               The Bridegroom
             </span>
 
-            {/* Groom Name */}
-            <h4 className="text-xl min-[360px]:text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#064E3B] tracking-tight mb-1">
+            {/* Groom Name — nowrap on desktop so "R" stays on same line */}
+            <h4 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#064E3B] tracking-tight mb-1 whitespace-nowrap">
               {groom.name}
             </h4>
 
@@ -71,47 +69,32 @@ export const CoupleSection = () => {
               </p>
             )}
 
-            <div className="w-14 sm:w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B] to-transparent my-1 sm:my-2" />
-          </div>
+            <div className="w-14 sm:w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B] to-transparent my-2 sm:my-3" />
 
-          {/* Groom's Family Details */}
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5 relative z-10">
-            <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
-              {groom.sonOf}
-            </span>
-            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
-              {groom.fatherName}
-            </p>
-            <p className="text-xs font-serif italic text-[#C6A15B]">&</p>
-            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
-              {groom.motherName}
-            </p>
-
+            {/* Residence */}
             {groom.city && (
-              <p className="text-[11px] sm:text-xs text-[#425F54] font-sans mt-1.5 sm:mt-2 pt-1.5 sm:pt-2 border-t border-[#C6A15B]/15">
+              <p className="text-[11px] sm:text-xs text-[#425F54] font-sans mt-1">
                 Residence: <span className="font-medium text-[#17352C]">{groom.city}</span>
               </p>
             )}
           </div>
         </div>
 
-        {/* Traditional Wedding Ceremonial Fabric Knot (Connecting Groom & Bride Cards) */}
-        {/* Full Edge-to-Edge Coverage: spans exactly from Groom's right inner edge to Bride's left inner edge */}
+        {/* Traditional Wedding Ceremonial Fabric Knot */}
         <div className="hidden md:flex absolute left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2 pointer-events-none items-center justify-center w-20 lg:w-28 z-20">
           <WeddingScarf idPrefix="desktop-knot" className="w-full" />
         </div>
 
         {/* BRIDE'S CARD */}
-        <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-between text-center islamic-gold-frame">
+        <div className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#C6A15B]/40 shadow-xl flex flex-col justify-center text-center islamic-gold-frame">
           <IslamicCorner position="top-right" size={50} className="top-1 right-1 opacity-75" />
           <IslamicCorner position="bottom-left" size={50} className="bottom-1 left-1 opacity-75" />
 
-          {/* Bride Islamic Medallion (Eight-pointed star & floral motif) */}
+          {/* Bride Islamic Medallion */}
           <div className="flex flex-col items-center relative z-20">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#FFFDF9] to-[#FAF7EF] border border-[#C6A15B] flex items-center justify-center mb-3 sm:mb-4 shadow-sm">
               <svg viewBox="0 0 36 36" className="w-7 h-7 sm:w-8 sm:h-8 text-[#064E3B]" fill="none">
                 <circle cx="18" cy="18" r="16" stroke="#C6A15B" strokeWidth="1" strokeDasharray="2 2" />
-                {/* 8-Pointed Star Centerpiece */}
                 <g transform="translate(18, 18)">
                   <rect x="-7" y="-7" width="14" height="14" fill="#064E3B" rx="1" />
                   <rect x="-7" y="-7" width="14" height="14" fill="#064E3B" rx="1" transform="rotate(45)" />
@@ -136,24 +119,11 @@ export const CoupleSection = () => {
               </p>
             )}
 
-            <div className="w-14 sm:w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B] to-transparent my-1 sm:my-2" />
-          </div>
+            <div className="w-14 sm:w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B] to-transparent my-2 sm:my-3" />
 
-          {/* Bride's Family Details */}
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C6A15B]/20 flex flex-col items-center space-y-1 sm:space-y-1.5 relative z-10">
-            <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#9A7730] font-serif italic">
-              {bride.daughterOf}
-            </span>
-            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
-              {bride.fatherName}
-            </p>
-            <p className="text-xs font-serif italic text-[#C6A15B]">&</p>
-            <p className="text-sm sm:lg font-serif font-bold text-[#17352C]">
-              {bride.motherName}
-            </p>
-
+            {/* Residence */}
             {bride.city && (
-              <p className="text-[11px] sm:text-xs text-[#425F54] font-sans mt-1.5 sm:mt-2 pt-1.5 sm:pt-2 border-t border-[#C6A15B]/15">
+              <p className="text-[11px] sm:text-xs text-[#425F54] font-sans mt-1">
                 Residence: <span className="font-medium text-[#17352C]">{bride.city}</span>
               </p>
             )}
@@ -164,7 +134,6 @@ export const CoupleSection = () => {
 
       {/* ================================================================= */}
       {/* MOBILE VIEW (Width < 768px): Unified Single Wedding Section       */}
-      {/* Both Groom & Bride Visible Together in One Harmonious Card       */}
       {/* ================================================================= */}
       <div className="block md:hidden">
         <div className="relative bg-[#FFFDF9] rounded-2xl p-2.5 min-[360px]:p-3 min-[390px]:p-3.5 sm:p-5 border border-[#C6A15B]/40 shadow-xl islamic-gold-frame overflow-hidden">
@@ -180,8 +149,8 @@ export const CoupleSection = () => {
           <div className="hidden min-[360px]:grid grid-cols-2 gap-x-8 min-[375px]:gap-x-10 min-[390px]:gap-x-12 min-[414px]:gap-x-14 sm:gap-x-16 items-stretch relative">
             
             {/* GROOM (Left Column) */}
-            <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl px-2 py-3.5 min-[375px]:px-2.5 min-[375px]:py-4 min-[390px]:px-3 min-[390px]:py-4.5 sm:px-4 sm:py-5 min-h-[255px] min-[375px]:min-h-[268px] min-[390px]:min-h-[280px] sm:min-h-[295px] border border-[#C6A15B]/30 relative shadow-xs">
-              <div className="flex flex-col items-center relative z-20">
+            <div className="min-w-0 flex flex-col items-center justify-center text-center bg-[#FAF7EF]/60 rounded-xl px-2 py-4 min-[375px]:px-2.5 min-[375px]:py-5 min-[390px]:px-3 min-[390px]:py-5 sm:px-4 sm:py-6 border border-[#C6A15B]/30 relative shadow-xs">
+              <div className="flex flex-col items-center relative z-20 w-full">
                 {/* Groom's Emblem */}
                 <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 min-[390px]:mb-2 shadow-xs">
                   <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
@@ -197,54 +166,42 @@ export const CoupleSection = () => {
                   </svg>
                 </div>
 
-                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans mb-1">
+                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans mb-1.5">
                   The Groom
                 </span>
 
-                {/* Symmetrical Name & Qualification Area */}
-                <div className="w-full min-h-[44px] min-[375px]:min-h-[48px] min-[390px]:min-h-[52px] flex flex-col items-center justify-center">
-                  <h4 className="text-[13px] min-[375px]:text-sm min-[390px]:text-base font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
-                    {groom.name}
+                {/* Groom name — two lines balanced: "Ajmal Ahamed" / "R" */}
+                <div className="w-full flex flex-col items-center justify-center mb-1.5">
+                  <h4 className="text-[12px] min-[375px]:text-[13px] min-[390px]:text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight text-center">
+                    Ajmal Ahamed
                   </h4>
-
-                  {groom.qualification && (
-                    <p className="text-[9px] min-[375px]:text-[10px] min-[390px]:text-[11px] font-sans text-[#425F54] font-medium leading-snug break-words">
-                      {groom.qualification}
-                    </p>
-                  )}
+                  <h4 className="text-[12px] min-[375px]:text-[13px] min-[390px]:text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight text-center">
+                    R
+                  </h4>
                 </div>
 
-                {/* Upper Horizontal Divider Line (Divider 1: Synchronized vertical placement) */}
-                <div className="w-8 min-[375px]:w-10 min-[390px]:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent my-1.5 min-[390px]:my-2 mx-auto" />
-              </div>
+                {groom.qualification && (
+                  <p className="text-[9px] min-[375px]:text-[10px] min-[390px]:text-[11px] font-sans text-[#425F54] font-medium leading-snug mb-1.5">
+                    {groom.qualification}
+                  </p>
+                )}
 
-              {/* Groom's Parentage (Divider 2: border-t perfectly aligned with Bride) */}
-              <div className="w-full mt-auto pt-2.5 min-[390px]:pt-3 border-t border-[#C6A15B]/25 flex flex-col items-center relative z-10">
-                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-serif italic mb-1 whitespace-nowrap">
-                  {groom.sonOf}
-                </span>
-                <div className="min-h-[40px] min-[375px]:min-h-[44px] min-[390px]:min-h-[48px] flex flex-col items-center justify-center">
-                  <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
-                    {groom.fatherName}
-                  </p>
-                  <p className="text-[9px] min-[390px]:text-[10px] font-serif italic text-[#C6A15B] my-0.5">
-                    &
-                  </p>
-                  <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
-                    {groom.motherName}
-                  </p>
-                </div>
+                <div className="w-8 min-[375px]:w-10 min-[390px]:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent mb-1.5 mx-auto" />
+
+                <p className="text-[9px] min-[390px]:text-[10px] text-[#425F54] font-sans">
+                  {groom.city}
+                </p>
               </div>
             </div>
 
-            {/* Connecting Traditional Ceremonial Wedding Fabric Knot (Mobile-Only: shifted downward by ~11px) */}
-            <div className="absolute left-1/2 top-[calc(48%+11px)] min-[390px]:top-[calc(48%+12px)] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-8 min-[375px]:w-10 min-[390px]:w-12 min-[414px]:w-14 sm:w-16">
+            {/* Connecting Traditional Ceremonial Wedding Fabric Knot */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-8 min-[375px]:w-10 min-[390px]:w-12 min-[414px]:w-14 sm:w-16">
               <WeddingScarf idPrefix="mobile-knot" className="w-full" />
             </div>
 
             {/* BRIDE (Right Column) */}
-            <div className="min-w-0 flex flex-col justify-between text-center bg-[#FAF7EF]/60 rounded-xl px-2 py-3.5 min-[375px]:px-2.5 min-[375px]:py-4 min-[390px]:px-3 min-[390px]:py-4.5 sm:px-4 sm:py-5 min-h-[255px] min-[375px]:min-h-[268px] min-[390px]:min-h-[280px] sm:min-h-[295px] border border-[#C6A15B]/30 relative shadow-xs">
-              <div className="flex flex-col items-center relative z-20">
+            <div className="min-w-0 flex flex-col items-center justify-center text-center bg-[#FAF7EF]/60 rounded-xl px-2 py-4 min-[375px]:px-2.5 min-[375px]:py-5 min-[390px]:px-3 min-[390px]:py-5 sm:px-4 sm:py-6 border border-[#C6A15B]/30 relative shadow-xs">
+              <div className="flex flex-col items-center relative z-20 w-full">
                 {/* Bride's Emblem */}
                 <div className="w-8 h-8 min-[390px]:w-9 min-[390px]:h-9 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mb-1.5 min-[390px]:mb-2 shadow-xs">
                   <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 min-[390px]:w-5 min-[390px]:h-5 text-[#064E3B]" fill="none">
@@ -258,54 +215,37 @@ export const CoupleSection = () => {
                   </svg>
                 </div>
 
-                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans mb-1">
+                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans mb-1.5">
                   The Bride
                 </span>
 
-                {/* Symmetrical Name & Qualification Area */}
-                <div className="w-full min-h-[44px] min-[375px]:min-h-[48px] min-[390px]:min-h-[52px] flex flex-col items-center justify-center">
-                  <h4 className="text-[13px] min-[375px]:text-sm min-[390px]:text-base font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+                <div className="w-full flex flex-col items-center justify-center mb-1.5">
+                  <h4 className="text-[13px] min-[375px]:text-sm min-[390px]:text-base font-serif font-bold text-[#064E3B] tracking-tight leading-tight text-center">
                     {bride.name}
                   </h4>
-
-                  {bride.qualification && (
-                    <p className="text-[9px] min-[375px]:text-[10px] min-[390px]:text-[11px] font-sans text-[#425F54] font-medium leading-snug break-words">
-                      {bride.qualification}
-                    </p>
-                  )}
                 </div>
 
-                {/* Upper Horizontal Divider Line (Divider 1: Synchronized vertical placement matching Groom) */}
-                <div className="w-8 min-[375px]:w-10 min-[390px]:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent my-1.5 min-[390px]:my-2 mx-auto" />
-              </div>
+                {bride.qualification && (
+                  <p className="text-[9px] min-[375px]:text-[10px] min-[390px]:text-[11px] font-sans text-[#425F54] font-medium leading-snug mb-1.5">
+                    {bride.qualification}
+                  </p>
+                )}
 
-              {/* Bride's Parentage (Divider 2: border-t perfectly aligned with Groom) */}
-              <div className="w-full mt-auto pt-2.5 min-[390px]:pt-3 border-t border-[#C6A15B]/25 flex flex-col items-center relative z-10">
-                <span className="text-[9px] min-[390px]:text-[10px] uppercase tracking-wider text-[#9A7730] font-serif italic mb-1 whitespace-nowrap">
-                  {bride.daughterOf}
-                </span>
-                <div className="min-h-[40px] min-[375px]:min-h-[44px] min-[390px]:min-h-[48px] flex flex-col items-center justify-center">
-                  <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
-                    {bride.fatherName}
-                  </p>
-                  <p className="text-[9px] min-[390px]:text-[10px] font-serif italic text-[#C6A15B] my-0.5">
-                    &
-                  </p>
-                  <p className="text-[11px] min-[375px]:text-xs min-[390px]:text-[13px] font-serif font-bold text-[#17352C] leading-snug break-words">
-                    {bride.motherName}
-                  </p>
-                </div>
+                <div className="w-8 min-[375px]:w-10 min-[390px]:w-12 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent mb-1.5 mx-auto" />
+
+                <p className="text-[9px] min-[390px]:text-[10px] text-[#425F54] font-sans">
+                  {bride.city}
+                </p>
               </div>
             </div>
 
           </div>
 
           {/* ------------------------------------------------------------- */}
-          {/* 2. Narrow Mobile (< 360px): Single Integrated Stack Card     */}
-          {/* Prioritizes crystal-clear typography on 320px screens         */}
+          {/* 2. Narrow Mobile (< 360px): Single Integrated Stack Card      */}
           {/* ------------------------------------------------------------- */}
           <div className="block min-[360px]:hidden space-y-3">
-            {/* Groom Section (Upper Half) */}
+            {/* Groom Section */}
             <div className="bg-[#FAF7EF]/60 rounded-xl px-2.5 py-3.5 border border-[#C6A15B]/30 text-center">
               <div className="w-8 h-8 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mx-auto mb-1.5 shadow-xs">
                 <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 text-[#064E3B]" fill="none">
@@ -323,27 +263,18 @@ export const CoupleSection = () => {
               <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans block mb-1">
                 The Groom
               </span>
-              <h4 className="text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+              <h4 className="text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight mb-0.5">
                 {groom.name}
               </h4>
               {groom.qualification && (
-                <p className="text-[10px] font-sans text-[#425F54] font-medium leading-snug break-words mb-1">
+                <p className="text-[10px] font-sans text-[#425F54] font-medium leading-snug mb-1">
                   {groom.qualification}
                 </p>
               )}
               <div className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent mx-auto my-1.5" />
-              <div className="pt-2 border-t border-[#C6A15B]/20">
-                <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-serif italic block mb-0.5">
-                  {groom.sonOf}
-                </span>
-                <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
-                  {groom.fatherName}
-                </p>
-                <p className="text-[9px] font-serif italic text-[#C6A15B] my-0.5">&</p>
-                <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
-                  {groom.motherName}
-                </p>
-              </div>
+              <p className="text-[10px] text-[#425F54] font-sans">
+                Residence: <span className="font-medium text-[#17352C]">{groom.city}</span>
+              </p>
             </div>
 
             {/* Traditional Ceremonial Wedding Knot (Narrow Mobile) */}
@@ -353,7 +284,7 @@ export const CoupleSection = () => {
               </div>
             </div>
 
-            {/* Bride Section (Lower Half) */}
+            {/* Bride Section */}
             <div className="bg-[#FAF7EF]/60 rounded-xl px-2.5 py-3.5 border border-[#C6A15B]/30 text-center">
               <div className="w-8 h-8 rounded-full bg-[#FFFDF9] border border-[#C6A15B]/70 flex items-center justify-center mx-auto mb-1.5 shadow-xs">
                 <svg viewBox="0 0 36 36" className="w-4.5 h-4.5 text-[#064E3B]" fill="none">
@@ -369,41 +300,19 @@ export const CoupleSection = () => {
               <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-semibold font-sans block mb-1">
                 The Bride
               </span>
-              <h4 className="text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight break-words mb-0.5">
+              <h4 className="text-sm font-serif font-bold text-[#064E3B] tracking-tight leading-tight mb-0.5">
                 {bride.name}
               </h4>
               {bride.qualification && (
-                <p className="text-[10px] font-sans text-[#425F54] font-medium leading-snug break-words mb-1">
+                <p className="text-[10px] font-sans text-[#425F54] font-medium leading-snug mb-1">
                   {bride.qualification}
                 </p>
               )}
               <div className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#C6A15B]/70 to-transparent mx-auto my-1.5" />
-              <div className="pt-2 border-t border-[#C6A15B]/20">
-                <span className="text-[9px] uppercase tracking-wider text-[#9A7730] font-serif italic block mb-0.5">
-                  {bride.daughterOf}
-                </span>
-                <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
-                  {bride.fatherName}
-                </p>
-                <p className="text-[9px] font-serif italic text-[#C6A15B] my-0.5">&</p>
-                <p className="text-xs font-serif font-bold text-[#17352C] leading-snug break-words">
-                  {bride.motherName}
-                </p>
-              </div>
+              <p className="text-[10px] text-[#425F54] font-sans">
+                Residence: <span className="font-medium text-[#17352C]">{bride.city}</span>
+              </p>
             </div>
-          </div>
-
-          {/* ------------------------------------------------------------- */}
-          {/* Shared Residence & Location Footer (Beneath Both Cards)       */}
-          {/* ------------------------------------------------------------- */}
-          <div className="mt-2.5 sm:mt-3 pt-2 sm:pt-2.5 border-t border-[#C6A15B]/25 text-center">
-            <p className="text-[10px] min-[375px]:text-[11px] sm:text-xs text-[#425F54] font-sans">
-              Residence: <span className="font-semibold text-[#17352C]">
-                {groom.city && bride.city && groom.city === bride.city 
-                  ? groom.city 
-                  : [groom.city, bride.city].filter(Boolean).join(' • ')}
-              </span>
-            </p>
           </div>
 
         </div>
